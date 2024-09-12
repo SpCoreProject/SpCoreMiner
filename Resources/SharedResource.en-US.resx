@@ -1,0 +1,496 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Aler &amp; Notification" xml:space="preserve">
+    <value>Aler &amp; Notification</value>
+    <comment>Aler &amp; Notification</comment>
+  </data>
+  <data name="Alert" xml:space="preserve">
+    <value>Alert</value>
+    <comment>Alert</comment>
+  </data>
+  <data name="All Mode" xml:space="preserve">
+    <value>All Mode</value>
+    <comment>All Mode</comment>
+  </data>
+  <data name="All Transactions" xml:space="preserve">
+    <value>All Transactions</value>
+    <comment>All Transactions</comment>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>Amount</value>
+    <comment>Amount</comment>
+  </data>
+  <data name="Automatic" xml:space="preserve">
+    <value>Automatic</value>
+    <comment>Automatic</comment>
+  </data>
+  <data name="Balance" xml:space="preserve">
+    <value>Balance</value>
+    <comment>Balance</comment>
+  </data>
+  <data name="Block" xml:space="preserve">
+    <value>Block</value>
+    <comment>Block</comment>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Clear</value>
+    <comment>Clear</comment>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
+    <comment>Close</comment>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Confirm</value>
+    <comment>Confirm</comment>
+  </data>
+  <data name="Connect" xml:space="preserve">
+    <value>Connect</value>
+    <comment>Connect</comment>
+  </data>
+  <data name="Connect to Pool" xml:space="preserve">
+    <value>Connect to Pool</value>
+    <comment>Connect to Pool</comment>
+  </data>
+  <data name="Connection with Mobile" xml:space="preserve">
+    <value>Connection with Mobile</value>
+    <comment>Connection with Mobile</comment>
+  </data>
+  <data name="Core" xml:space="preserve">
+    <value>Core</value>
+    <comment>Core</comment>
+  </data>
+  <data name="Core Download" xml:space="preserve">
+    <value>Core Download</value>
+    <comment>Core Download</comment>
+  </data>
+  <data name="Core Mode" xml:space="preserve">
+    <value>Core Mode</value>
+    <comment>Core Mode</comment>
+  </data>
+  <data name="Created by SpCore Team" xml:space="preserve">
+    <value>Created by SpCore Team</value>
+    <comment>Created by SpCore Team</comment>
+  </data>
+  <data name="Dark" xml:space="preserve">
+    <value>Dark</value>
+    <comment>Dark</comment>
+  </data>
+  <data name="Database Download" xml:space="preserve">
+    <value>Database Download</value>
+    <comment>Database Download</comment>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Date</value>
+    <comment>Date</comment>
+  </data>
+  <data name="Davinci Algorithms" xml:space="preserve">
+    <value>Davinci Algorithms</value>
+    <comment>Davinci Algorithms</comment>
+  </data>
+  <data name="Display Account Balance" xml:space="preserve">
+    <value>Display Account Balance</value>
+    <comment>Display Account Balance</comment>
+  </data>
+  <data name="Display LCD" xml:space="preserve">
+    <value>Display LCD</value>
+    <comment>Display LCD</comment>
+  </data>
+  <data name="Download Core" xml:space="preserve">
+    <value>Download Core</value>
+    <comment>Download Core</comment>
+  </data>
+  <data name="Enter" xml:space="preserve">
+    <value>Enter</value>
+    <comment>Enter</comment>
+  </data>
+  <data name="Enter Pin Code" xml:space="preserve">
+    <value>Enter Pin Code</value>
+    <comment>Enter Pin Code</comment>
+  </data>
+  <data name="From" xml:space="preserve">
+    <value>From</value>
+    <comment>From</comment>
+  </data>
+  <data name="Hardware Management" xml:space="preserve">
+    <value>Hardware Management</value>
+    <comment>Hardware Management</comment>
+  </data>
+  <data name="Hash Per SC" xml:space="preserve">
+    <value>Hash Per SC</value>
+    <comment>Hash Per SC</comment>
+  </data>
+  <data name="Hash Size" xml:space="preserve">
+    <value>Hash Size</value>
+    <comment>Hash Size</comment>
+  </data>
+  <data name="Hide" xml:space="preserve">
+    <value>Hide</value>
+    <comment>Hide</comment>
+  </data>
+  <data name="install LCD" xml:space="preserve">
+    <value>install LCD</value>
+    <comment>install LCD</comment>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Languages</value>
+    <comment>Languages</comment>
+  </data>
+  <data name="LastPage" xml:space="preserve">
+    <value>LastPage</value>
+    <comment>LastPage</comment>
+  </data>
+  <data name="Light" xml:space="preserve">
+    <value>Light</value>
+    <comment>Light</comment>
+  </data>
+  <data name="Log In/Log Out" xml:space="preserve">
+    <value>Log In/Log Out</value>
+    <comment>Log In/Log Out</comment>
+  </data>
+  <data name="Manual" xml:space="preserve">
+    <value>Manual</value>
+    <comment>Manual</comment>
+  </data>
+  <data name="Matrix Algorithms" xml:space="preserve">
+    <value>Matrix Algorithms</value>
+    <comment>Matrix Algorithms</comment>
+  </data>
+  <data name="Maximum Power" xml:space="preserve">
+    <value>Maximum Power</value>
+    <comment>Maximum Power</comment>
+  </data>
+  <data name="Mining Config" xml:space="preserve">
+    <value>Mining Config</value>
+    <comment>Mining Config</comment>
+  </data>
+  <data name="Mining History" xml:space="preserve">
+    <value>Mining History</value>
+    <comment>Mining History</comment>
+  </data>
+  <data name="Mining Strategy" xml:space="preserve">
+    <value>Mining Strategy</value>
+    <comment>Mining Strategy</comment>
+  </data>
+  <data name="Mining Type" xml:space="preserve">
+    <value>Mining Type</value>
+    <comment>Mining Type</comment>
+  </data>
+  <data name="NextPage" xml:space="preserve">
+    <value>NextPage</value>
+    <comment>NextPage</comment>
+  </data>
+  <data name="Notification" xml:space="preserve">
+    <value>Notification</value>
+    <comment>Notification</comment>
+  </data>
+  <data name="Notification and Alerts" xml:space="preserve">
+    <value>Notification and Alerts</value>
+    <comment>Notification and Alerts</comment>
+  </data>
+  <data name="Off" xml:space="preserve">
+    <value>Off</value>
+    <comment>Off</comment>
+  </data>
+  <data name="Optimized Config" xml:space="preserve">
+    <value>Optimized Config</value>
+    <comment>Optimized Config</comment>
+  </data>
+  <data name="Paste" xml:space="preserve">
+    <value>Paste</value>
+    <comment>Paste</comment>
+  </data>
+  <data name="Pin Code" xml:space="preserve">
+    <value>Pin Code</value>
+    <comment>Pin Code</comment>
+  </data>
+  <data name="Please Enter Code" xml:space="preserve">
+    <value>Please Enter Code</value>
+    <comment>Please Enter Code</comment>
+  </data>
+  <data name="Pool Configuration" xml:space="preserve">
+    <value>Pool Configuration</value>
+    <comment>Pool Configuration</comment>
+  </data>
+  <data name="Pool CPU Mining" xml:space="preserve">
+    <value>Pool CPU Mining</value>
+    <comment>Pool CPU Mining</comment>
+  </data>
+  <data name="Pool Name" xml:space="preserve">
+    <value>Pool Name</value>
+    <comment>Pool Name</comment>
+  </data>
+  <data name="Power Management" xml:space="preserve">
+    <value>Power Management</value>
+    <comment>Power Management</comment>
+  </data>
+  <data name="Protective Systems" xml:space="preserve">
+    <value>Protective Systems</value>
+    <comment>Protective Systems</comment>
+  </data>
+  <data name="Proxy" xml:space="preserve">
+    <value>Proxy</value>
+    <comment>Proxy</comment>
+  </data>
+  <data name="QR Card Wallet" xml:space="preserve">
+    <value>QR Card Wallet</value>
+    <comment>QR Card Wallet</comment>
+  </data>
+  <data name="QR Code" xml:space="preserve">
+    <value>QR Code</value>
+    <comment>QR Code</comment>
+  </data>
+  <data name="QR Conect to Device" xml:space="preserve">
+    <value>QR Conect to Device</value>
+    <comment>QR Conect to Device</comment>
+  </data>
+  <data name="QR Conection" xml:space="preserve">
+    <value>QR Conection</value>
+    <comment>QR Conection</comment>
+  </data>
+  <data name="QR Static Wallet" xml:space="preserve">
+    <value>QR Static Wallet</value>
+    <comment>QR Static Wallet</comment>
+  </data>
+  <data name="Scan" xml:space="preserve">
+    <value>Scan</value>
+    <comment>Scan</comment>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Settings</value>
+    <comment>Settings</comment>
+  </data>
+  <data name="Show" xml:space="preserve">
+    <value>Show</value>
+    <comment>Show</comment>
+  </data>
+  <data name="Solo CPU Mining" xml:space="preserve">
+    <value>Solo CPU Mining</value>
+    <comment>Solo CPU Mining</comment>
+  </data>
+  <data name="Spcore Algorithms" xml:space="preserve">
+    <value>Spcore Algorithms</value>
+    <comment>Spcore Algorithms</comment>
+  </data>
+  <data name="Spcore Block Detail" xml:space="preserve">
+    <value>Spcore Block Detail</value>
+    <comment>Spcore Block Detail</comment>
+  </data>
+  <data name="SpCore Message Box" xml:space="preserve">
+    <value>SpCore Message Box</value>
+    <comment>SpCore Message Box</comment>
+  </data>
+  <data name="SpCore Project" xml:space="preserve">
+    <value>SpCore Project</value>
+    <comment>SpCore Project</comment>
+  </data>
+  <data name="SpCore Transaction" xml:space="preserve">
+    <value>SpCore Transaction</value>
+    <comment>SpCore Transaction</comment>
+  </data>
+  <data name="Stability Systems" xml:space="preserve">
+    <value>Stability Systems</value>
+    <comment>Stability Systems</comment>
+  </data>
+  <data name="Start Time" xml:space="preserve">
+    <value>Start Time</value>
+    <comment>Start Time</comment>
+  </data>
+  <data name="Theme" xml:space="preserve">
+    <value>Theme</value>
+    <comment>Theme</comment>
+  </data>
+  <data name="To" xml:space="preserve">
+    <value>To</value>
+    <comment>To</comment>
+  </data>
+  <data name="ToCards Transactions" xml:space="preserve">
+    <value>ToCards Transactions</value>
+    <comment>ToCards Transactions</comment>
+  </data>
+  <data name="Total Minnig" xml:space="preserve">
+    <value>Total Minnig</value>
+    <comment>Total Minnig</comment>
+  </data>
+  <data name="ToWallet Transactions" xml:space="preserve">
+    <value>ToWallet Transactions</value>
+    <comment>ToWallet Transactions</comment>
+  </data>
+  <data name="TraHash" xml:space="preserve">
+    <value>TraHash</value>
+    <comment>TraHash</comment>
+  </data>
+  <data name="Transaction" xml:space="preserve">
+    <value>Transaction</value>
+    <comment>Transaction</comment>
+  </data>
+  <data name="Transaction details" xml:space="preserve">
+    <value>Transaction details</value>
+    <comment>Transaction details</comment>
+  </data>
+  <data name="Transaction Mode" xml:space="preserve">
+    <value>Transaction Mode</value>
+    <comment>Transaction Mode</comment>
+  </data>
+  <data name="Usage CPU" xml:space="preserve">
+    <value>Usage CPU</value>
+    <comment>Usage CPU</comment>
+  </data>
+  <data name="Vpn Connection" xml:space="preserve">
+    <value>Vpn Connection</value>
+    <comment>Vpn Connection</comment>
+  </data>
+  <data name="VPN DisConnection" xml:space="preserve">
+    <value>VPN DisConnection</value>
+    <comment>VPN DisConnection</comment>
+  </data>
+  <data name="Wallet Address" xml:space="preserve">
+    <value>Wallet Address</value>
+    <comment>Wallet Address</comment>
+  </data>
+  <data name="Wallet Balance" xml:space="preserve">
+    <value>Wallet Balance</value>
+    <comment>Wallet Balance</comment>
+  </data>
+  <data name="Wallet QR Code" xml:space="preserve">
+    <value>Wallet QR Code</value>
+    <comment>Wallet QR Code</comment>
+  </data>
+  <data name="Wi-Fi Connection" xml:space="preserve">
+    <value>Wi-Fi Connection</value>
+    <comment>Wi-Fi Connection</comment>
+  </data>
+  <data name="Withdrawal To Card" xml:space="preserve">
+    <value>Withdrawal To Card</value>
+    <comment>Withdrawal To Card</comment>
+  </data>
+  <data name="Withdrawal To Wallet" xml:space="preserve">
+    <value>Withdrawal To Wallet</value>
+    <comment>Withdrawal To Wallet</comment>
+  </data>
+  <data name="You must first select a PIN for your device" xml:space="preserve">
+    <value>You must first select a PIN for your device</value>
+    <comment>You must first select a PIN for your device</comment>
+  </data>
+  <data name="Zoom Control" xml:space="preserve">
+    <value>Zoom Control</value>
+    <comment>Zoom Control</comment>
+  </data>
+</root>

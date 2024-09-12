@@ -1,0 +1,166 @@
+body {
+    box-sizing: border-box;
+}
+
+.menu_wrapper {
+    background-color: #191A1E;
+    /*padding: 5px;*/
+    width: 100vw;
+    height: 100vh;
+}
+
+header.menu {
+    display: flex;
+    height: 98vh;
+    width: 98vw;
+}
+
+    header.menu .menu__icon nav {
+        display: flex;
+        flex-direction: column;
+    }
+
+        header.menu .menu__icon nav a {
+            width: 20px;
+            height: 2.5vh;
+            background-color: #2F323A;
+            border: 1px solid #3C3842;
+            padding: 3.5vh;
+            text-align: center;
+            position: relative;
+            min-height: 20px;
+        }
+
+            header.menu .menu__icon nav a:nth-child(2n+1) {
+                border-top-width: 0;
+                border-bottom-width: 0;
+            }
+
+            header.menu .menu__icon nav a:not(:last-child):after {
+                content: "";
+                position: absolute;
+                bottom: 0px;
+                left: 0;
+                width: 100%;
+                height: 1px;
+                background-color: #23252B;
+            }
+
+            header.menu .menu__icon nav a.active {
+                width: 18px;
+                border-right-color: #25282E;
+                background-color: #25282E;
+                border-left-width: 3px;
+                border-left-color: #5C9DF5;
+            }
+
+                header.menu .menu__icon nav a.active i {
+                    color: white;
+                }
+
+            header.menu .menu__icon nav a:hover {
+                background-color: #5C9DF5;
+                cursor: pointer;
+            }
+
+                header.menu .menu__icon nav a:hover i {
+                    color: white;
+                }
+
+                header.menu .menu__icon nav a:hover:after {
+                    background-color: #5C9DF5;
+                }
+
+            header.menu .menu__icon nav a i {
+                color: #989AA4;
+            }
+
+    header.menu .menu__dashboard {
+        width: 100%;
+        border: 1px solid #3C3842;
+        align-content: center;
+    }
+
+        header.menu .menu__dashboard .menu__dashboard--title {
+            padding: 20px;
+            font-family: Verdana;
+            font-size: 1.2rem;
+            color: white;
+        }
+
+            header.menu .menu__dashboard .menu__dashboard--title span {
+                display: block;
+                font-size: 0.7rem;
+                margin-top: 20px;
+                color: #989AA4;
+            }
+
+        header.menu .menu__dashboard .menu__dashboard--content-wrapper > ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: none;
+            -webkit-animation: slide 300ms ease-in-out forwards;
+            animation: slide 300ms ease-in-out forwards;
+        }
+
+            header.menu .menu__dashboard .menu__dashboard--content-wrapper > ul.active {
+                display: block;
+            }
+
+@-webkit-keyframes slide {
+    0% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes slide {
+    0% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+header.menu .menu__dashboard .menu__dashboard--content-wrapper > ul li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+    header.menu .menu__dashboard .menu__dashboard--content-wrapper > ul li a {
+        flex: 2;
+        display: block;
+        padding: 7px 20px;
+        color: #989AA4;
+        font-size: 1rem;
+        text-decoration: none;
+    }
+
+    header.menu .menu__dashboard .menu__dashboard--content-wrapper > ul li:hover {
+        background-color: #25282E;
+    }
+
+    header.menu .menu__dashboard .menu__dashboard--content-wrapper > ul li span.badge {
+        align-self: center;
+        width: 20px;
+        height: 15px;
+        padding: 2px 5px;
+        border: 1px solid #3C3842;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        color: #3C3842;
+        text-align: center;
+        margin-right: 20px;
+    }

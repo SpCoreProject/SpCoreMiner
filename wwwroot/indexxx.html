@@ -1,0 +1,1376 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spcore - Menu</title>
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/normalize.min.css" rel="stylesheet" />
+    <link href="css/normalize2.min.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/style-range.css" rel="stylesheet" />
+    <link href="css/index.css" rel="stylesheet" />
+    <link href="css/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet" />
+    <link href="css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/keyboard.css" rel="stylesheet" />
+
+    <script src="js/chart.js"></script>
+    <script src="js/highcharts.js"></script>
+    <script src="js/export-data.js"></script>
+    <script src="js/accessibility.js"></script>
+    <script src="js/series-label.js"></script>
+
+</head>
+<body>
+    <!-- partial:index.partial.html -->
+    <div class="menu_wrapper bodynight">
+        <header class="menu">
+            <div class="menu__icon">
+                <nav>
+                    <a class="menu_0" data-tab="tab1">
+                        <i class="fa fa-university"></i>
+                        <!-- <i class="fa fa-tachometer"></i> -->
+                    </a>
+                    <a class="menu_1" data-tab="tab2">
+                        <i class="fa fa-sliders"></i>
+                    </a>
+                    <a class="menu_2" data-tab="tab3">
+                        <i class="fa fa-diamond"></i>
+                    </a>
+                    <a class="menu_3" data-tab="tab4">
+                        <i class="fa fa-credit-card"></i>
+                    </a>
+                    <a class="menu_4" data-tab="tab5">
+                        <i class="fa fa-list-alt"></i>
+                    </a>
+                    <a class="menu_5" data-tab="tab6">
+                        <i class="fa fa-cog"></i>
+                    </a>
+                </nav>
+            </div>
+            <div class="menu__dashboard tab-content">
+                <!--     <div class="menu__dashboard--title">
+                  Dashboard <span>CPU Manitor</span>
+                </div> -->
+                <div class="menu__dashboard--content-wrapper">
+                    <div id="tab1" class="tab active">
+                        <div style="width:50%;">
+                            <div class="thermo" style="width: 24vw; height: 24vw;" id='thermostat'></div>
+
+
+
+                            <div style="text-align: left; margin: 7% 14%;">
+
+
+                                <p>Usage CPU : &nbsp;&nbsp;<span id="usageCPU"></span>&nbsp; %</p>
+                                <p>TraHash : &nbsp;&nbsp;<span id="Hashing"></span>&nbsp; %</p>
+                                <p>Hash Per SC : &nbsp;&nbsp;<span id="usage"></span>&nbsp; 143,00 TH/S</p>
+                                <p>Start Time : &nbsp;&nbsp;<span id="usage"></span>&nbsp; 01.01.2022</p>
+                                <p>Total Minnig : &nbsp;&nbsp;<span id="usage"></span>&nbsp; 1294 Trade</p>
+                            </div>
+
+                            <script>
+                                setInterval(myTimer, 1000);
+                                var hasht = 1;
+                                function myTimer() {
+                                    const d = new Date();
+                                    hasht = hasht + 143;
+                                    document.getElementById("usageCPU").innerText = Math.floor(Math.random() * (100 - 90)) + 90;
+                                    document.getElementById("Hashing").innerText = hasht + ".00 TH";
+                                    nest.target_temperature = Math.floor(Math.random() * (100 - 90)) + 90;
+                                }
+                            </script>
+                        </div>
+                        <div style="width:50%;">
+
+                            <div style="display: flex; align-items: center; justify-content: center;">
+                                <button id="toggleBtn" class="toggle-btn openModalBtn" data-modal="modal6">
+                                    <i id="toggleIcon" class="fa fa-cubes"></i>
+                                </button>
+                                <script>
+                                    const toggleBtn = document.getElementById('toggleBtn');
+                                    const toggleIcon = document.getElementById('toggleIcon');
+                                    let isOn = false;
+
+                                    toggleBtn.classList.add('on');
+                                    toggleIcon.classList = "fa fa-cubes"
+                                    toggleBtn.addEventListener('click', () => {
+                                        isOn = !isOn;
+                                        if (isOn) {
+                                            toggleBtn.classList.add('on');
+                                            toggleIcon.classList = "fa fa-cubes"
+                                            // alert('on');
+                                        } else {
+                                            toggleBtn.classList.remove('on');
+                                            toggleIcon.classList = "fa fa-power-off"
+                                            // alert('off');
+                                        }
+                                    });
+                                </script>
+
+                                <div class="dashboardcard">
+                                    <p>Balance: <span id="devicebalancedashboard">12345678.00000000</span> </p>
+                                    <p>Wallet Balance: <span id="walletbalancedashboard">12345678.00000000</span></p>
+
+
+                                </div>
+                            </div>
+
+
+
+
+                            <canvas id="myChart" style="width:45vw;max-width:45vw"></canvas>
+
+                            <script>
+                                const xValues = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
+
+                                new Chart("myChart", {
+                                    type: "line",
+                                    data: {
+                                        labels: xValues,
+                                        datasets: [{
+                                            data: [860, 1140, 1060, 1060, 1070, 1110, 1330, 2210, 7830, 2478],
+                                            borderColor: "red",
+                                            fill: false
+                                        }, {
+                                            data: [1600, 1700, 1700, 1900, 2000, 2700, 4000, 5000, 6000, 7000],
+                                            borderColor: "green",
+                                            fill: false
+                                        }, {
+                                            data: [300, 700, 2000, 5000, 6000, 4000, 2000, 1000, 200, 100],
+                                            borderColor: "blue",
+                                            fill: false
+                                        }]
+                                    },
+                                    options: {
+                                        legend: { display: false }
+                                    }
+                                });
+                            </script>
+
+
+
+
+
+
+                            <div class="settings-container">
+
+
+
+
+                                <button class="openModalBtn" data-modal="modal1">QR Static Wallet</button>
+                                <button class="openModalBtn" data-modal="modal2">QR Card Wallet</button>
+                                <br />
+                                <button class="openModalBtn" data-modal="modal3">QR Conection </button>
+                                <button class="redbtn">Restart Device</button>
+                                <!--            <div class="inputs">
+                                    <input type="text" placeholder="Input 1">
+                                    <input type="text" placeholder="Input 2">
+                                </div> -->
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div id="tab2" class="tab">
+
+
+
+
+
+
+
+                        <div style="display:flex;" class="settings-container">
+                            <div style="width:50%;">
+                                <div style="display:block;">
+                                    <div>
+                                        <p class="headertext">Mining Config</p>
+
+                                        <!-- Pin Code -->
+                                        <label for="pinCodex">Pin Code (Lock Screen & Apps)</label>
+                                        <label for="PoolName">Pool Name : <span>-----</span></label>
+                                        <input type="text" id="pinCodex" name="pinCode" placeholder="Enter Pin Code" required>
+                                        <input type="password" id="pinCodex" name="pinCode" placeholder="Enter Pin Code" required>
+                                        <!-- Login/Logout -->
+                                        <br />
+                                        <button id="loginLogoutBtnx">Log In/Log Out</button>
+                                        <hr />
+                                        <!-- Dark/Light Theme -->
+                                        <label for="MiningModel">Mining Type</label>
+                                        <select id="MiningModel" name="MinigType">
+                                            <option value="Core">Core</option>
+                                            <option value="Transaction">Transaction</option>
+                                        </select>
+
+                                        <hr />
+
+                                        <!-- Strategy -->
+                                        <label for="MiningStrategy">Mining Strategy</label>
+                                        <select id="MiningStrategy" name="MiningStrategy">
+                                            <option value="Solo CPU Mining">Solo CPU Mining</option>
+                                            <option value="Pool CPU Mining">Pool CPU Mining</option>
+                                            <option value="Spcore Algorithms">Spcore Algorithms</option>
+                                            <option value="Matrix Algorithms">Matrix Algorithms</option>
+                                            <option value="Davinci Algorithms">Davinci Algorithms</option>
+                                        </select>
+
+                                        <hr />
+
+
+
+
+
+
+
+                                        <!-- Auto/Manual Database Download -->
+                                        <label for="CoreDownloadx">Core Download</label>
+                                        <select id="CoreDownloadx" name="CoreDownload">
+                                            <option value="auto">Automatic</option>
+                                            <option value="manual">Manual</option>
+                                        </select>
+                                        <br />
+                                        <button id="downloadCoreBtnx">Download Core</button>
+
+                                    </div>
+
+                                    <script>
+                                        document.getElementById('loginLogoutBtnx').addEventListener('click', function () {
+                                            const isLoggedIn = confirm('Are you currently logged in? (OK for Yes, Cancel for No)');
+                                            if (isLoggedIn) {
+                                                alert('Logging out...');
+                                                // Perform logout actions here
+                                            } else {
+                                                alert('Logging in...');
+                                                // Perform login actions here
+                                            }
+                                        });
+
+                                        document.getElementById('downloadCoreBtnx').addEventListener('click', function () {
+                                            alert('Downloading database...');
+                                            // Perform database download actions here
+                                        });
+                                    </script>
+
+                                </div>
+                            </div>
+                            <div style="width:50%;">
+                                <div>
+
+                                    <!-- <p>Config Mining</p> -->
+
+                                    <p class="headertext">-</p>
+
+                                    <label for="PowerManagement">Power Management</label>
+                                    <select id="PowerManagement" name="PowerManagement">
+                                        <option value="show">Show</option>
+                                        <option value="hide">Hide</option>
+                                    </select>
+                                    <hr />
+                                    <label for="NotificationAlerts">Notification and Alerts</label>
+                                    <select id="NotificationAlerts" name="NotificationAlerts">
+                                        <option value="Off">Off</option>
+                                        <option value="Alert & Notification">Aler & Notification</option>
+                                        <option value="Notification">Notification</option>
+                                        <option value="Alert">Alert</option>
+                                    </select>
+                                    <hr />
+                                    <label for="HardwareManagement">Hardware Management</label>
+                                    <select id="HardwareManagement" name="HardwareManagement">
+                                        <option value="Protective Systems">Protective Systems</option>
+                                        <option value="Stability Systems">Stability Systems</option>
+                                        <option value="Optimized Config">Optimized Config</option>
+                                        <option value="Maximum Power">Maximum Power</option>
+                                    </select>
+                                    <hr />
+
+                                    <label for="ProxyConfig">Pin Code (Lock Screen & Apps)</label>
+                                    <label for="PoolName">Proxy : <span>-----</span></label>
+                                    <input type="text" id="ProxyIp" name="ProxyIp" placeholder="Enter Proxt Ip">
+                                    <input type="text" id="ProxyPort" name="ProxyPort" placeholder="Enter Proxy Port" required>
+                                    <!-- Login/Logout -->
+                                    <br />
+                                    <button id="loginLogoutBtnx">Log In/Log Out</button>
+
+
+                                    <!--
+                                    <button>Button 1</button>
+                                    <button>Button 2</button>
+                                    <button>Button 3</button>
+                                    <button>Button 4</button>
+                                    <div class="inputs">
+                                        <input type="text" placeholder="Input 1">
+                                        <input type="text" placeholder="Input 2">
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+                <div id="tab3" class="tab">
+                    <div style="display:block;">
+
+                        <div class="settings-container" style="display:flex;">
+                            <div style="display:block;width:65vw;">
+
+                                <p class="headertext">Balance : <span>1.0000000</span> SP</p>
+                                <p>Wallet Address : <span>4x42vxevbc1pw24n7dl89we3mxze7hj</span> SP</p>
+                                <div class="inputs">
+                                    <input type="text" placeholder="Amount">  <button>Withdrawal To Wallet</button>
+                                    <input type="text" style="min-width: 60vw;" placeholder="Wallet"><br />
+
+                                </div>
+
+                                <p>Withdrawal To Card</p>
+                                <div class="inputs">
+
+                                    <input type="text" placeholder="Amount">
+                                    <button>Withdrawal To Card</button>
+                                </div>
+
+
+                            </div>
+
+                            <div style="width:20vw;text-align: -webkit-center;">
+                                <p class="headertext">Wallet QR Code</p>
+                                <canvas id="qrwallet"></canvas>
+                            </div>
+                        </div>
+                        <div style="display:block;">
+                            <!-- <div class="settings-container"> -->
+                            <div class="listheaderbtn">
+
+                                <button>LastPage</button>
+
+                                <button>All Transactions</button>
+                                <button>ToCards Transactions</button>
+                                <button>ToWallet Transactions</button>
+
+                                <button>NextPage</button>
+                            </div>
+
+                            <!-- </div> -->
+                            <input type="text" class="myInput" id="myTransactionInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+
+                            <table class="myTable" id="TransationHistory">
+                                <tr class="header">
+                                    <th style="width:30%;">From</th>
+                                    <th style="width:30%;">To</th>
+                                    <th style="width:20%;">Amount</th>
+                                    <th style="width:10%;">Confirm</th>
+                                    <th style="width:4%;">-</th>
+                                    <th style="width:5%;">Show</th>
+                                </tr>
+                                <tr>
+                                    <td>bc1pw24n4x42vxev7dl89we3mxze7hj</td>
+                                    <td>fstr7rlm0vcw2rac7yv7u672shvufum</td>
+                                    <td>12345678,00000000</td>
+                                    <td>1</td>
+                                    <td><i class="fa fa-arrow-down"></i></td>
+                                    <td><i class="fa fa-eye openModalBtn" data-modal="modal4"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>fstr7rlm0vcw2rac7yv7u672shvufum</td>
+                                    <td>bc1pw24n4x42vxev7dl89we3mxze7hj</td>
+                                    <td>87654321,99999999</td>
+                                    <td>3</td>
+                                    <td><i class="fa fa-arrow-up"></i></td>
+                                    <td><i class="fa fa-eye"></i></td>
+                                </tr>
+
+                                <tr>
+                                    <td>bc1pw24n4x42vxev7dl89we3mxze7hj</td>
+                                    <td>fstr7rlm0vcw2rac7yv7u672shvufum</td>
+                                    <td>12345678,00000000</td>
+                                    <td>1</td>
+                                    <td><i class="fa fa-arrow-down"></i></td>
+                                    <td><i class="fa fa-eye"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>fstr7rlm0vcw2rac7yv7u672shvufum</td>
+                                    <td>bc1pw24n4x42vxev7dl89we3mxze7hj</td>
+                                    <td>87654321,99999999</td>
+                                    <td>3</td>
+                                    <td><i class="fa fa-arrow-up"></i></td>
+                                    <td><i class="fa fa-eye"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>bc1pw24n4x42vxev7dl89we3mxze7hj</td>
+                                    <td>fstr7rlm0vcw2rac7yv7u672shvufum</td>
+                                    <td>12345678,00000000</td>
+                                    <td>1</td>
+                                    <td><i class="fa fa-arrow-down"></i></td>
+                                    <td><i class="fa fa-eye"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>fstr7rlm0vcw2rac7yv7u672shvufum</td>
+                                    <td>bc1pw24n4x42vxev7dl89we3mxze7hj</td>
+                                    <td>87654321,99999999</td>
+                                    <td>3</td>
+                                    <td><i class="fa fa-arrow-up"></i></td>
+                                    <td><i class="fa fa-eye"></i></td>
+                                </tr>
+
+                            </table>
+
+                            <script>
+                                function myFunction() {
+                                    var input, filter, table, tr, td, i, txtValue;
+                                    input = document.getElementById("myTransactionInput");
+                                    filter = input.value.toUpperCase();
+                                    table = document.getElementById("TransationHistory");
+                                    tr = table.getElementsByTagName("tr");
+                                    for (i = 0; i < tr.length; i++) {
+                                        td = tr[i].getElementsByTagName("td")[0];
+                                        if (td) {
+                                            txtValue = td.textContent || td.innerText;
+                                            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                                tr[i].style.display = "";
+                                            } else {
+                                                tr[i].style.display = "none";
+                                            }
+                                        }
+                                    }
+                                }
+                            </script>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+                <div id="tab4" class="tab">
+                    <div style="display:block;">
+
+                        <div class="settings-container" style="display:flex;">
+                            <div style="display:block;width:65vw;">
+
+                                <p class="headertext">Balance : <span>1.0000000</span> SP</p>
+                                <p>Wallet Address : <span>4x42vxevbc1pw24n7dl89we3mxze7hj</span> SP</p>
+                                <div class="inputs">
+                                    <input type="text" placeholder="Amount">  <button>Withdrawal To Wallet</button>
+                                    <input type="text" style="min-width: 60vw;" placeholder="Wallet"><br />
+
+                                </div>
+
+                                <p>Withdrawal To Card</p>
+                                <div class="inputs">
+
+                                    <input type="text" placeholder="Amount">
+                                    <button>Withdrawal To Card</button>
+                                </div>
+
+
+                            </div>
+
+                            <div style="width:20vw;text-align: -webkit-center;">
+                                <p class="headertext">Wallet QR Code</p>
+                                <canvas id="qrcard"></canvas>
+                            </div>
+                        </div>
+                        <div style="display:block;">
+                            <!-- <div class="settings-container"> -->
+                            <div class="listheaderbtn">
+
+                                <button>LastPage</button>
+
+                                <button>All Transactions</button>
+                                <button>ToCards Transactions</button>
+                                <button>ToWallet Transactions</button>
+
+                                <button>NextPage</button>
+                            </div>
+
+                            <!-- </div> -->
+                            <input type="text" class="myInput" id="myTransactionInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+
+                            <table class="myTable" id="TransationHistory">
+                                <tr class="header">
+                                    <th style="width:30%;">From</th>
+                                    <th style="width:30%;">To</th>
+                                    <th style="width:20%;">Amount</th>
+                                    <th style="width:10%;">Confirm</th>
+                                    <th style="width:4%;">-</th>
+                                    <th style="width:6%;">Show</th>
+                                </tr>
+                                <tr>
+                                    <td>bc1pw24n4x42vxev7dl89we3mxze7hj</td>
+                                    <td>fstr7rlm0vcw2rac7yv7u672shvufum</td>
+                                    <td>12345678,00000000</td>
+                                    <td>1</td>
+                                    <td><i class="fa fa-arrow-down"></i></td>
+                                    <td><i class="fa fa-eye openModalBtn" data-modal="modal4"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>fstr7rlm0vcw2rac7yv7u672shvufum</td>
+                                    <td>bc1pw24n4x42vxev7dl89we3mxze7hj</td>
+                                    <td>87654321,99999999</td>
+                                    <td>3</td>
+                                    <td><i class="fa fa-arrow-up"></i></td>
+                                    <td><i class="fa fa-eye"></i></td>
+                                </tr>
+
+                                <tr>
+                                    <td>bc1pw24n4x42vxev7dl89we3mxze7hj</td>
+                                    <td>fstr7rlm0vcw2rac7yv7u672shvufum</td>
+                                    <td>12345678,00000000</td>
+                                    <td>1</td>
+                                    <td><i class="fa fa-arrow-down"></i></td>
+                                    <td><i class="fa fa-eye"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>fstr7rlm0vcw2rac7yv7u672shvufum</td>
+                                    <td>bc1pw24n4x42vxev7dl89we3mxze7hj</td>
+                                    <td>87654321,99999999</td>
+                                    <td>3</td>
+                                    <td><i class="fa fa-arrow-up"></i></td>
+                                    <td><i class="fa fa-eye"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>bc1pw24n4x42vxev7dl89we3mxze7hj</td>
+                                    <td>fstr7rlm0vcw2rac7yv7u672shvufum</td>
+                                    <td>12345678,00000000</td>
+                                    <td>1</td>
+                                    <td><i class="fa fa-arrow-down"></i></td>
+                                    <td><i class="fa fa-eye"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>fstr7rlm0vcw2rac7yv7u672shvufum</td>
+                                    <td>bc1pw24n4x42vxev7dl89we3mxze7hj</td>
+                                    <td>87654321,99999999</td>
+                                    <td>3</td>
+                                    <td><i class="fa fa-arrow-up"></i></td>
+                                    <td><i class="fa fa-eye"></i></td>
+                                </tr>
+
+                            </table>
+
+                            <script>
+                                function myFunction() {
+                                    var input, filter, table, tr, td, i, txtValue;
+                                    input = document.getElementById("myTransactionInput");
+                                    filter = input.value.toUpperCase();
+                                    table = document.getElementById("TransationHistory");
+                                    tr = table.getElementsByTagName("tr");
+                                    for (i = 0; i < tr.length; i++) {
+                                        td = tr[i].getElementsByTagName("td")[0];
+                                        if (td) {
+                                            txtValue = td.textContent || td.innerText;
+                                            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                                tr[i].style.display = "";
+                                            } else {
+                                                tr[i].style.display = "none";
+                                            }
+                                        }
+                                    }
+                                }
+                            </script>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id="tab5" class="tab">
+
+                    <div style="display:block;">
+                        <div style="display:block;">
+                            <p>Mining History</p>
+                            <div class="listheaderbtn">
+
+                                <button>Last Page</button>
+                                <button>All Mode</button>
+                                <button>Transaction Mode</button>
+                                <button>Core Mode</button>
+                                <button>Next Page</button>
+                            </div>
+                            <!--
+                            <div class="inputs">
+                                <input type="text" placeholder="From Date">
+                                <input type="text" placeholder="To Date">
+                            </div> -->
+                        </div>
+                        <div style="display:block;">
+
+                            <input type="text" class="myInput" id="myTradeInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+
+                            <table class="myTable" id="TradeHistory">
+                                <tr class="header">
+                                    <th style="width:20%;">Mining Type</th>
+                                    <th style="width:25%;">Block</th>
+                                    <th style="width:20%;">Amount</th>
+                                    <th style="width:10%;">Hash Size</th>
+                                    <th style="width:10%;">Confirm</th>
+                                    <th style="width:15%;">Date</th>
+                                    <th style="width:10%;">Show</th>
+                                </tr>
+                                <tr>
+                                    <td>TransAction</td>
+                                    <td>bc1pw24n4x42vxev7dl89we3mxze7hj</td>
+                                    <td>87654321,99999999</td>
+                                    <td>305765</td>
+                                    <td>20</td>
+                                    <td>01.01.2024 18:53:50</td>
+                                    <td><i class="fa fa-eye openModalBtn" data-modal="modal5"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Core</td>
+                                    <td>2vxev7dl89bc1pw24n4x4we3mxze7hj</td>
+                                    <td>12345678,99999999</td>
+                                    <td>1246134</td>
+                                    <td>20</td>
+                                    <td>02.01.2024 18:53:50</td>
+                                    <td><i class="fa fa-eye"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>TransAction</td>
+                                    <td>bc1pw24n4x42vxev7dl89we3mxze7hj</td>
+                                    <td>87654321,99999999</td>
+                                    <td>305765</td>
+                                    <td>20</td>
+                                    <td>01.01.2024 18:53:50</td>
+                                    <td><i class="fa fa-eye"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Core</td>
+                                    <td>2vxev7dl89bc1pw24n4x4we3mxze7hj</td>
+                                    <td>12345678,99999999</td>
+                                    <td>1246134</td>
+                                    <td>20</td>
+                                    <td>02.01.2024 18:53:50</td>
+                                    <td><i class="fa fa-eye"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>TransAction</td>
+                                    <td>bc1pw24n4x42vxev7dl89we3mxze7hj</td>
+                                    <td>87654321,99999999</td>
+                                    <td>305765</td>
+                                    <td>20</td>
+                                    <td>01.01.2024 18:53:50</td>
+                                    <td><i class="fa fa-eye"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Core</td>
+                                    <td>2vxev7dl89bc1pw24n4x4we3mxze7hj</td>
+                                    <td>12345678,99999999</td>
+                                    <td>1246134</td>
+                                    <td>20</td>
+                                    <td>02.01.2024 18:53:50</td>
+                                    <td><i class="fa fa-eye"></i></td>
+                                </tr>
+                            </table>
+
+                            <script>
+                                function myFunction() {
+                                    var input, filter, table, tr, td, i, txtValue;
+                                    input = document.getElementById("myTradeInput");
+                                    filter = input.value.toUpperCase();
+                                    table = document.getElementById("TradeHistory");
+                                    tr = table.getElementsByTagName("tr");
+                                    for (i = 0; i < tr.length; i++) {
+                                        td = tr[i].getElementsByTagName("td")[0];
+                                        if (td) {
+                                            txtValue = td.textContent || td.innerText;
+                                            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                                tr[i].style.display = "";
+                                            } else {
+                                                tr[i].style.display = "none";
+                                            }
+                                        }
+                                    }
+                                }
+                            </script>
+                        </div>
+                    </div>
+                </div>
+                <div id="tab6" class="tab">
+
+
+
+
+
+
+
+
+
+                    <div style="display:flex;" class="settings-container">
+                        <div style="width:50%;">
+                            <div style="display:block;">
+                                <div>
+                                    <p class="headertext">Settings</p>
+
+                                    <!-- Pin Code -->
+                                    <label for="pinCode">Pin Code (Lock Screen & Apps)</label>
+                                    <input type="password" id="OldpinCode" name="pinCode" placeholder="Enter Old Pin Code">
+                                    <input type="password" id="NewpinCode" name="pinCode" placeholder="Enter New Pin Code" required>
+                                    <input type="password" id="RepeatNewpinCode" name="pinCode" placeholder="Repeat New Pin Code" required>
+                                    <button id="ChangePin">Change Pin</button>
+
+
+                                    <!-- Dark/Light Theme -->
+                                    <label for="theme">Theme</label>
+                                    <select id="theme" name="theme">
+                                        <option value="light">Light</option>
+                                        <option value="dark">Dark</option>
+                                    </select>
+
+                                    <!-- Login/Logout -->
+                                    <!-- <button id="loginLogoutBtn">Log In/Log Out</button> -->
+                                    <!-- Auto/Manual Database Download -->
+                                    <label for="dbDownload">Database Download</label>
+                                    <select id="dbDownload" name="dbDownload">
+                                        <option value="auto">Automatic</option>
+                                        <option value="manual">Manual</option>
+                                    </select>
+                                    <button id="downloadDbBtn">Download Database</button>
+
+                                    <!-- Show/Hide Account Balance -->
+                                    <label for="balanceDisplay">Display Account Balance</label>
+                                    <select id="balanceDisplay" name="balanceDisplay">
+                                        <option value="show">Show</option>
+                                        <option value="hide">Hide</option>
+                                    </select>
+
+
+
+                                    <label for="DisplayLCD">Display LCD</label>
+                                    <select id="DisplayLCD" name="DisplayLCD">
+                                        <option value="none">none</option>
+                                        <option value="2.4">2.4"</option>
+                                        <option value="2.8">2.8"</option>
+                                        <option value="3.2">3.3"</option>
+                                        <option value="3.5">3.5"</option>
+                                        <option value="4.0">4.0"</option>
+                                        <option value="5.0">5.0"</option>
+                                        <option value="7.0">7.0"</option>
+
+                                    </select>
+                                    <br />
+                                    <button id="changelcd">install LCD</button>
+
+
+                                </div>
+
+                                <script>
+                                    document.getElementById('loginLogoutBtnx').addEventListener('click', function () {
+                                        const isLoggedIn = confirm('Are you currently logged in? (OK for Yes, Cancel for No)');
+                                        if (isLoggedIn) {
+                                            alert('Logging out...');
+                                            // Perform logout actions here
+                                        } else {
+                                            alert('Logging in...');
+                                            // Perform login actions here
+                                        }
+                                    });
+
+                                    document.getElementById('downloadDbBtn').addEventListener('click', function () {
+                                        alert('Downloading database...');
+                                        // Perform database download actions here
+                                    });
+                                </script>
+
+                            </div>
+                        </div>
+                        <div style="width:50%;">
+                            <div>
+
+                                <div>
+                                    <h3>Connection with Mobile<br /> QR Code</h3>
+                                    <canvas id="qrdevice"></canvas>
+                                </div>
+                                <label for="WifiDisConnection">Wi-Fi Connection</label>
+                                <!-- <button>DisConnect</button> -->
+
+                                <div class="inputs">
+
+                                    <label for="Wificonnection">Wi-Fi Connection</label>
+                                    <select id="Wificonnection" name="Wificonnection">
+                                        <option value="Wlan1">Wlan1</option>
+                                        <option value="Wlan2">Wlan2</option>
+                                    </select>
+                                    <input type="password" placeholder="Enter Wifi Password">
+                                    <!-- <input type="text" placeholder="Input 2"> -->
+                                    <button>Connect</button>
+                                </div>
+
+                                <label for="Language">Language</label>
+                                <select id="Language" name="Language">
+                                    <option value="English">English</option>
+                                    <option value="2.4">Farsi</option>
+                                    <option value="2.8">Arabic</option>
+                                    <option value="3.2">Deutsche</option>
+                                    <option value="3.5">Turkish</option>
+                                    <option value="4.0">Spanish</option>
+                                    <option value="5.0">France</option>
+
+                                </select>
+                                <label for="VpnDisConnection">VPN DisConnection</label>
+                                <!-- <button>DisConnect</button> -->
+                                <div class="inputs">
+                                    <label for="VpnConnection">Vpn Connection</label>
+                                    <input type="text" placeholder="Enter Ip Server">
+                                    <input type="text" placeholder="Enter UserName">
+                                    <input type="password" placeholder="Enter Password">
+                                    <button>Connect</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!--
+
+            <button class="openModalBtn" data-modal="modal1">Open Modal 1</button>
+            <button class="openModalBtn" data-modal="modal2">Open Modal 2</button>
+            <button class="openModalBtn" data-modal="modal3">Open Modal 3</button>
+            <button class="openModalBtn" data-modal="modal4">Open Modal 4</button>
+            <button class="openModalBtn" data-modal="modal5">Open Modal 5</button>
+            <button class="openModalBtn" data-modal="modal6">Open Modal 6</button> -->
+            <!-- The Modals -->
+            <div id="modal1" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <!-- <span class="close" data-modal="modal1">&times;</span> -->
+                        <span class="close" data-modal="modal1" tabindex="0">&times;</span>
+                        <p class="headertext">QR Static Wallet</p>
+                    </div>
+                    <div class="modal-body">
+                        <canvas id="qrwalletpopup"></canvas>
+                    </div>
+                    <div class="modal-footer">
+                        <p id="walletaddresspopup">Wallet Address</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="modal2" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <!-- <span class="close" data-modal="modal1">&times;</span> -->
+                        <span class="close" data-modal="modal2" tabindex="0">&times;</span>
+                        <p class="headertext">QR Card Wallet</p>
+                    </div>
+                    <div class="modal-body">
+                        <canvas id="qrcardpopup"></canvas>
+                    </div>
+                    <div class="modal-footer">
+                        <p id="walletaddresspopup">Wallet Address</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="modal3" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="close" data-modal="modal3" tabindex="0">&times;</span>
+                        <p class="headertext">QR Conect to Device</p>
+                    </div>
+                    <div class="modal-body">
+                        <canvas id="qrdevicepopup"></canvas>
+                    </div>
+                    <div class="modal-footer">
+                        <p>http://<span id="myippopup">192.168.2.2</span>/welcome</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="modal4" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="close" data-modal="modal4" tabindex="0">&times;</span>
+                        <p class="headertext">SpCore Transaction</p>
+                    </div>
+                    <div class="modal-body">
+                        <p>From : <span>-</span></p>
+                        <p>To : <span>-</span></p>
+                        <p>Amount : <span>-</span></p>
+                        <p>Fee : <span>-</span></p>
+                        <p>Size : <span>-</span></p>
+                        <p>Time :  <span>-</span></p>
+                        <p>Confirm :  <span>-</span></p>
+                        <p>Block ID : <span>-</span></p>
+                        <p>Hash ID : <span>-</span></p>
+                    </div>
+                    <div class="modal-footer">
+                        <p class="headertext">Transaction details</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="modal5" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="close" data-modal="modal5" tabindex="0">&times;</span>
+                        <p class="headertext">Spcore Block Detail</p>
+                    </div>
+                    <div class="modal-body" style="display: flex;">
+                        <div style="width:50%;">
+                            <p>Hash : <span>-</span></p>
+                            <p>Distance : <span>-</span></p>
+                            <p>Input Value : <span>-</span></p>
+                            <p>Output Value : <span>-</span></p>
+                            <p>Fees : <span>-</span></p>
+                            <p>Depth : <span>-</span></p>
+                            <p>Size : <span>-</span></p>
+                            <p>Version : <span>-</span></p>
+                            <p>Difficulty : <span>-</span></p>
+
+                        </div>
+                        <div style="width:50%;">
+                            <p>Bits : <span>-</span></p>
+                            <p>Minted : <span>-</span></p>
+                            <p>Height : <span>-</span></p>
+                            <p>Confirmations : <span>-</span></p>
+                            <p>Miner : <span>-</span></p>
+                            <p>Date : <span>-</span></p>
+                            <p>Block ID : <span>-</span></p>
+                            <p>Transactions : <span>-</span></p>
+                            <p>Pool : <span>-</span></p>
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <p class="headertext">Spcore Block Detail</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="modal6" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+
+                        <span class="close" data-modal="modal6" tabindex="0">&times;</span>
+                        <p class="headertext">Modal Header 6</p>
+                    </div>
+                    <div class="modal-body">
+
+
+                        <div id="display"></div>
+                        <div id="keyboard">
+                            <div>
+                                <button class="keyboard-btn">1</button>
+                                <button class="keyboard-btn">2</button>
+                                <button class="keyboard-btn">3</button>
+                            </div>
+                            <div>
+                                <button class="keyboard-btn">4</button>
+                                <button class="keyboard-btn">5</button>
+                                <button class="keyboard-btn">6</button>
+                            </div>
+                            <div>
+                                <button class="keyboard-btn">7</button>
+                                <button class="keyboard-btn">8</button>
+                                <button class="keyboard-btn">9</button>
+                            </div>
+                            <div>
+                                <button class="keyboard-btn" id="clear-btn">Clear</button>
+                                <button class="keyboard-btn">0</button>
+                                <button class="keyboard-btn" id="enter-btn">Enter</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <p class="headertext">Please Enter Code</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div id="modal7" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="close" data-modal="modal4" tabindex="0">&times;</span>
+                        <p class="headertext">SpCore Message Box</p>
+                    </div>
+                    <div class="modal-body">
+                        <p>You must first select a PIN for your device<span>.</span></p>
+                    </div>
+                    <div class="modal-footer">
+                        <p class="headertext">Created by SpCore Team</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+            <!--
+                <div class="container">
+                    <input type="text" id="inputField" placeholder="Click to type..." />
+                    <input type="text" id="inputField2" placeholder="Click to type..." />
+                    <input type="text" id="inputField3" placeholder="Click to type..." />
+                    <input type="text" id="inputField4" placeholder="Click to type..." />
+                </div> -->
+            <div id="virtualKeyboard" class="keyboard">
+                <div class="row">
+                    <!-- Number keys -->
+                    <button class="key" data-normal="1" data-shift="!">1</button>
+                    <button class="key" data-normal="2" data-shift="@">2</button>
+                    <button class="key" data-normal="3" data-shift="#">3</button>
+                    <button class="key" data-normal="4" data-shift="$">4</button>
+                    <button class="key" data-normal="5" data-shift="%">5</button>
+                    <button class="key" data-normal="6" data-shift="^">6</button>
+                    <button class="key" data-normal="7" data-shift="&">7</button>
+                    <button class="key" data-normal="8" data-shift="*">8</button>
+                    <button class="key" data-normal="9" data-shift="(">9</button>
+                    <button class="key" data-normal="0" data-shift=")">0</button>
+                    <button class="key" data-normal="-" data-shift="_">-</button>
+                    <button class="key" data-normal="=" data-shift="+">=</button>
+                </div>
+                <div class="row">
+                    <!-- Alphabet keys -->
+                    <button class="key" data-normal="q" data-shift="Q">q</button>
+                    <button class="key" data-normal="w" data-shift="W">w</button>
+                    <button class="key" data-normal="e" data-shift="E">e</button>
+                    <button class="key" data-normal="r" data-shift="R">r</button>
+                    <button class="key" data-normal="t" data-shift="T">t</button>
+                    <button class="key" data-normal="y" data-shift="Y">y</button>
+                    <button class="key" data-normal="u" data-shift="U">u</button>
+                    <button class="key" data-normal="i" data-shift="I">i</button>
+                    <button class="key" data-normal="o" data-shift="O">o</button>
+                    <button class="key" data-normal="p" data-shift="P">p</button>
+                    <button class="key" data-normal="[" data-shift="{">[</button>
+                    <button class="key" data-normal="]" data-shift="}">]</button>
+                </div>
+                <div class="row">
+                    <!-- More keys -->
+                    <button class="key" data-normal="a" data-shift="A">a</button>
+                    <button class="key" data-normal="s" data-shift="S">s</button>
+                    <button class="key" data-normal="d" data-shift="D">d</button>
+                    <button class="key" data-normal="f" data-shift="F">f</button>
+                    <button class="key" data-normal="g" data-shift="G">g</button>
+                    <button class="key" data-normal="h" data-shift="H">h</button>
+                    <button class="key" data-normal="j" data-shift="J">j</button>
+                    <button class="key" data-normal="k" data-shift="K">k</button>
+                    <button class="key" data-normal="l" data-shift="L">l</button>
+                    <button class="key" data-normal=";" data-shift=":">;</button>
+                    <button class="key" data-normal="'" data-shift="&quot;">'</button>
+                    <button class="key" data-normal="\\" data-shift="|">\\</button>
+                </div>
+                <div class="row">
+                    <!-- Additional keys -->
+                    <button class="key" data-normal="z" data-shift="Z">z</button>
+                    <button class="key" data-normal="x" data-shift="X">x</button>
+                    <button class="key" data-normal="c" data-shift="C">c</button>
+                    <button class="key" data-normal="v" data-shift="V">v</button>
+                    <button class="key" data-normal="b" data-shift="B">b</button>
+                    <button class="key" data-normal="n" data-shift="N">n</button>
+                    <button class="key" data-normal="m" data-shift="M">m</button>
+                    <button class="key" data-normal="/" data-shift="?">/</button>
+                    <button class="key" data-normal="." data-shift=">">.</button>
+                    <button class="key" data-normal="," data-shift="<">,</button>
+                    <button class="key move-left">←</button>
+                    <button class="key move-right">→</button>
+                </div>
+                <div class="row">
+                    <!-- New buttons -->
+                    <button class="key backspace">Clear</button>
+                    <button class="key paste">Paste</button>
+                    <button class="key shift">Shift</button>
+                    <button class="key space">Space</button>
+                    <button class="key enter">Enter</button>
+                    <button class="key close">Close</button>
+                </div>
+            </div>
+
+        </header>
+    </div>
+    <!-- partial -->
+    <script src="js/keyboard.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let currentTab = 0;
+            const tabs = document.querySelectorAll('.tab');
+            const tabButtons = document.querySelectorAll('.menu__icon a');
+            const focusableElementsString = 'button, input[type="text"]';
+
+            function showTab(index) {
+                tabs.forEach((tab, i) => {
+                    tab.classList.toggle('active', i === index);
+                });
+                tabButtons.forEach((button, i) => {
+                    button.classList.toggle('active', i === index);
+                });
+                currentTab = index;
+                setFocusToFirstElement(tabs[currentTab]);
+            }
+
+            function setFocusToFirstElement(tab) {
+                const focusableElements = tab.querySelectorAll(focusableElementsString);
+                if (focusableElements.length) {
+                    focusableElements[0].focus();
+                }
+            }
+
+            tabButtons.forEach((button, index) => {
+                button.addEventListener('click', () => showTab(index));
+            });
+
+            document.addEventListener('keydown', function (e) {
+                const activeTab = tabs[currentTab];
+                const focusableElements = activeTab.querySelectorAll(focusableElementsString);
+                const activeElementIndex = Array.prototype.indexOf.call(focusableElements, document.activeElement);
+
+                switch (e.key) {
+                    case 'ArrowRight':
+                        if (activeElementIndex > -1 && activeElementIndex < focusableElements.length - 1) {
+                            focusableElements[activeElementIndex + 1].focus();
+                        }
+                        break;
+                    case 'ArrowLeft':
+                        if (activeElementIndex > 0) {
+                            focusableElements[activeElementIndex - 1].focus();
+                        }
+                        break;
+                    case 'Enter':
+                        if (document.activeElement.tagName.toLowerCase() === 'button') {
+                            document.activeElement.click();
+                        } else if (document.activeElement.tagName.toLowerCase() === 'input') {
+                            document.activeElement.select();
+                        }
+                        break;
+                    case 'Escape':
+                        document.activeElement.blur();
+                        break;
+                    case 'x':
+                        e.preventDefault();
+                        if (e.shiftKey) {
+                            showTab((currentTab - 1 + tabs.length) % tabs.length);
+                        } else {
+                            showTab((currentTab + 1) % tabs.length);
+                        }
+                        break;
+                }
+            });
+
+            // Initialize the first tab
+            showTab(currentTab);
+        });
+    </script>
+    <script src="js/qrious.min.js"></script>
+    <script src="js/qr.js">  </script>
+
+    <!-- <script src="js/script-range.js"> </script> -->
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        // Get all modal elements
+        var modals = document.getElementsByClassName('modal');
+
+        // Get all button elements that open the modals
+        var btns = document.getElementsByClassName('openModalBtn');
+
+        // Get all <span> elements that close the modals
+        var spans = document.getElementsByClassName('close');
+
+        // Function to open a specific modal
+        function openModal(modalId) {
+            var modal = document.getElementById(modalId);
+            modal.style.display = 'block';
+            modal.querySelector('.close').focus(); // Focus on the close button
+        }
+
+        // Function to close a specific modal
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+        }
+
+        // Loop through all buttons and attach event listeners
+        for (let btn of btns) {
+            btn.onclick = function () {
+                openModal(this.getAttribute('data-modal'));
+            }
+        }
+
+        // Loop through all <span> elements and attach event listeners
+        for (let span of spans) {
+            span.onclick = function () {
+                closeModal(this.getAttribute('data-modal'));
+            }
+            span.addEventListener('keydown', function (event) {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    closeModal(this.getAttribute('data-modal'));
+                }
+            });
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            for (let modal of modals) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        }
+
+        // Handling button clicks for Modal 6
+        var display = document.getElementById('display');
+        var clearBtn = document.getElementById('clear-btn');
+        var enterBtn = document.getElementById('enter-btn');
+
+        // Add event listener for keyboard buttons
+        document.getElementById('keyboard').addEventListener('click', function (event) {
+            if (event.target.classList.contains('keyboard-btn') && event.target !== clearBtn && event.target !== enterBtn) {
+                var key = event.target.textContent;
+                display.textContent += key;
+            }
+        });
+
+        // Clear button functionality
+        clearBtn.onclick = function () {
+            display.textContent = display.textContent.slice(0, -1);
+        }
+
+        // Enter button functionality
+        enterBtn.onclick = function () {
+            alert(display.textContent);
+            display.textContent = '';
+        }
+
+        // Add keyboard navigation for Modal 6
+        var keyboardBtns = document.querySelectorAll('#keyboard .keyboard-btn');
+        var closeBtnModal6 = document.querySelector('#modal6 .close');
+        var currentIndex = 0;
+
+        function focusButton(index) {
+            keyboardBtns[index].focus();
+        }
+
+        document.addEventListener('keydown', function (event) {
+            if (document.getElementById('modal6').style.display === 'block') {
+                switch (event.key) {
+                    case 'ArrowUp':
+                        if (currentIndex > 2) {
+                            currentIndex -= 3;
+                            focusButton(currentIndex);
+                        }
+                        break;
+                    case 'ArrowDown':
+                        if (currentIndex < keyboardBtns.length - 3) {
+                            currentIndex += 3;
+                            focusButton(currentIndex);
+                        }
+                        break;
+                    case 'ArrowLeft':
+                        if (currentIndex % 3 !== 0) {
+                            currentIndex -= 1;
+                            focusButton(currentIndex);
+                        }
+                        break;
+                    case 'ArrowRight':
+                        if (currentIndex % 3 !== 2 && currentIndex < keyboardBtns.length - 1) {
+                            currentIndex += 1;
+                            focusButton(currentIndex);
+                        }
+                        break;
+                    case 'Enter':
+                    case ' ':
+                        if (document.activeElement === keyboardBtns[currentIndex]) {
+                            keyboardBtns[currentIndex].click();
+                            event.preventDefault(); // Prevent the default behavior of Enter/Space key
+                        } else if (document.activeElement === closeBtnModal6) {
+                            closeModal('modal6');
+                        } else if (document.activeElement === enterBtn) {
+                            enterBtn.click();
+                        }
+                        break;
+                    case 'Backspace':
+                        display.textContent = display.textContent.slice(0, -1);
+                        break;
+                    case 'Tab':
+                        if (document.activeElement === keyboardBtns[currentIndex]) {
+                            closeBtnModal6.focus();
+                        } else if (document.activeElement === closeBtnModal6) {
+                            enterBtn.focus();
+                        } else if (document.activeElement === enterBtn) {
+                            focusButton(currentIndex);
+                        }
+                        event.preventDefault();
+                        break;
+                    default:
+                        if (!isNaN(event.key)) {
+                            display.textContent += event.key;
+                        }
+                }
+            }
+        });
+
+        // Initial focus on close button when modal opens
+        for (let modal of modals) {
+            modal.addEventListener('show', function () {
+                var closeBtn = modal.querySelector('.close');
+                closeBtn.focus();
+            });
+        }
+    </script>
+
+
+    <script>
+
+
+        GetSettings("1");
+        function GetSettings(page) {
+            var formData = new FormData();
+            formData.append("Pin", page);
+
+            $.ajax(
+                {
+                    url: "/Home/CheckDatabase",
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    type: "POST",
+                    success: function (response) {
+                        let b = 0;
+                        var n = response.length;
+                        do {
+                            console.log(response);
+                            b++;
+                        }
+                        while (b <= n);
+                    }
+                }
+            );
+        }
+
+
+
+    </script>
+
+
+</body>
+</html>

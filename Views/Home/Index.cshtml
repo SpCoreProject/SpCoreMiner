@@ -1,0 +1,2549 @@
+﻿@inject LanguageService language
+@{
+    ViewData["Title"] = "Home Page";
+}
+<script>
+    var CpuLed = 'red_on';
+    var EchoLed = 'green_on';
+    var ConnectionLed = 'red_on';
+    var LogoLed = 'white_on';
+    var CartLed = 'red_on';
+    var RgbShow = true;
+    var DeviceLed = true;
+</script>
+<style>
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+    }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+    input:checked + .slider {
+        background-color: #2196F3;
+    }
+
+    input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+    }
+
+    /* Rounded sliders */
+    .slider.round {
+        border-radius: 34px;
+    }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+</style>
+<!-- partial:index.partial.html -->
+<div class="menu_wrapper bodynight">
+    <header class="menu">
+        <div class="menu__icon">
+            <nav>
+                <a class="menu_0" data-tab="tab1">
+                    <i class="fa fa-university"></i>
+                    <!-- <i class="fa fa-tachometer"></i> -->
+                </a>
+                <a class="menu_1" data-tab="tab2">
+                    <i class="fa fa-sliders"></i>
+                </a>
+                <a class="menu_2" data-tab="tab3">
+                    <i class="fa fa-diamond"></i>
+                </a>
+                <a class="menu_3" data-tab="tab4">
+                    <i class="fa fa-credit-card"></i>
+                </a>
+                <a class="menu_4" data-tab="tab5">
+                    <i class="fa fa-list-alt"></i>
+                </a>
+                <a class="menu_5" data-tab="tab6">
+                    <i class="fa fa-cog"></i>
+                </a>
+                <a class="menu_6" data-tab="tab7">
+                    <img style="width:200%;margin: -10px;" src="Images/lgwhite.png" />
+                </a>
+            </nav>
+        </div>
+        <div class="menu__dashboard tab-content example">
+            <!--     <div class="menu__dashboard--title">
+              Dashboard <span>CPU Manitor</span>
+            </div> -->
+            <div class="menu__dashboard--content-wrapper">
+                <div id="tab1" class="tab active" style="margin-top:10px;">
+                    <div style="width:50%;">
+
+
+
+
+
+                        <link href="css/thermometer.css" rel="stylesheet" />
+
+
+                        <div id="wrapper">
+                            <div class="thermo" style="width: 10vw; height: 10vw;" id='thermostat2'></div>
+
+                            <div id="termometer">
+                                <div id="temperature" style="height:0" data-value="0°C"></div>
+                                <div id="graduations"></div>
+
+                            </div>
+
+                            <div id="playground">
+                                <div id="range">
+                                    @*                <input id="minTemp" type="text" value="-20">
+                                    <input type="range" min="-20" max="50" value="42">
+                                    <input id="maxTemp" type="text" value="50"> *@
+                                </div>
+                                <p id="unit">Celcius C°</p>
+                            </div>
+
+                            @* <p id="info">Click on the values to change them!</p> *@
+                        </div>
+
+                        <script src="js/thermometer.js"></script>
+
+                        <div class="thermo" style="width: 24vw; height: 24vw;" id='thermostat'></div>
+
+
+                        <script src="js/script-range.js"> </script>
+
+                        <div style="text-align: left; margin: 7% 14%;">
+
+
+                            <p>@language.Getkey("Usage CPU") : &nbsp;&nbsp;<span id="usageCPU"></span>&nbsp; %</p>
+                            <p>@language.Getkey("TraHash") : &nbsp;&nbsp;<span id="Hashing"></span>&nbsp; %</p>
+                            <p>@language.Getkey("Hash Per SC") : &nbsp;&nbsp;<span id="usage"></span>&nbsp; 143,00 TH/S</p>
+                            <p>@language.Getkey("Start Time") : &nbsp;&nbsp;<span id="usage"></span>&nbsp; 01.01.2022</p>
+                            <p>@language.Getkey("Total Minnig") : &nbsp;&nbsp;<span id="usage"></span>&nbsp; 1294 Trade</p>
+                        </div>
+
+                        <script>
+                            var intervalID = setInterval(myTimer, 1000);
+                            var hasht = 1;
+                            function myTimer() {
+                                const d = new Date();
+                                hasht = hasht + 143;
+                                document.getElementById("usageCPU").innerText = Math.floor(Math.random() * (100 - 90)) + 90;
+                                document.getElementById("Hashing").innerText = hasht + ".00 TH";
+                                nest.target_temperature = Math.floor(Math.random() * (100 - 90)) + 90;
+                            }
+                            clearInterval(intervalID);
+                            Timeout();
+                            function Timeout() {
+                                const d = new Date();
+
+                                document.getElementById("usageCPU").innerText = 0;
+                                document.getElementById("Hashing").innerText = 0 + ".00 TH";
+                                nest.target_temperature = 0;
+                            }
+                        </script>
+
+
+
+                        @* <p id="temperaturexx">CPU Temperature: Loading...</p> *@
+                        @* <p id="cpuUsage">CPU Usage: Loading...</p> *@
+                        @* <p id="ramUsage">RAM Usage: Loading...</p> *@
+
+                        <script>
+                            function updateSystemInfo() {
+                                $.ajax({
+                                    url: "/Home/GetSystemInfo",
+                                    type: "POST",
+                                    contentType: "application/json",
+                                    success: function (data) {
+                                        // $('#temperaturex').text('CPU Temperature: ' + data.temperature);
+                                        // $('#cpuUsage').text('CPU Usage: ' + data.cpuUsage);
+                                        // $('#ramUsage').text('RAM Usage: ' + data.ramUsage);
+
+                                        // console.log(data.cpuUsage);
+                                        document.getElementById("usageCPU").innerText = data.cpuUsage;
+
+                                        nest.target_temperature = data.cpuUsage;
+                                        //  nest2.target_temperature = Math.floor(data.ramUsage * (100 - 90)) + 90;
+                                        // nest.target_temperature = data.cpuUsage;
+                                        nest2.target_temperature = data.ramUsage;
+                                        setTemperatureCustom(data.temperature);
+                                    },
+                                    error: function () {
+                                        // alert('Failed to retrieve system info.');
+                                    }
+                                });
+                            }
+
+                            $(document).ready(function () {
+                                // به‌روزرسانی اطلاعات سیستم هر 10 ثانیه
+                                updateSystemInfo();
+                                setInterval(updateSystemInfo, 10000); // 10 ثانیه
+                            });
+                        </script>
+
+
+
+
+
+
+
+
+
+
+                    </div>
+
+                    <div style="width:50%;">
+
+                        <div style="display: flex; align-items: center; justify-content: center;">
+                            <button id="toggleBtn" class="toggle-btn openModalBtn" data-modal="modal6">
+                                <i id="toggleIcon" class="fa fa-cubes"></i>
+                            </button>
+
+
+                            <div class="dashboardcard">
+                                <p>@language.Getkey("Balance"): <span id="devicebalancedashboard">12345678.00000000</span> </p>
+                                <p>@language.Getkey("Wallet Balance"): <span id="walletbalancedashboard">12345678.00000000</span></p>
+
+
+                            </div>
+                        </div>
+
+
+
+
+                        <canvas id="myChart" style="width:45vw;max-width:45vw"></canvas>
+
+                        <script>
+                            const xValues = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
+
+                            new Chart("myChart", {
+                                type: "line",
+                                data: {
+                                    labels: xValues,
+                                    datasets: [{
+                                        data: [860, 1140, 1060, 1060, 1070, 1110, 1330, 2210, 7830, 2478],
+                                        borderColor: "red",
+                                        fill: false
+                                    }, {
+                                        data: [1600, 1700, 1700, 1900, 2000, 2700, 4000, 5000, 6000, 7000],
+                                        borderColor: "green",
+                                        fill: false
+                                    }, {
+                                        data: [300, 700, 2000, 5000, 6000, 4000, 2000, 1000, 200, 100],
+                                        borderColor: "blue",
+                                        fill: false
+                                    }]
+                                },
+                                options: {
+                                    legend: { display: false }
+                                }
+                            });
+                        </script>
+
+
+
+
+
+
+                        <div class="settings-container">
+
+
+
+
+                            <button class="openModalBtn" data-modal="modal1">@language.Getkey("QR Static Wallet")</button>
+                            <button class="openModalBtn" data-modal="modal2">@language.Getkey("QR Card Wallet")</button>
+                            <br />
+                            <button class="openModalBtn" data-modal="modal3">@language.Getkey("QR Conection") </button>
+                            <button onclick="TurnOffDevice()" class="redbtn"><i class="fa fa-power-off" aria-hidden="true"></i></button>
+                            <button onclick="RestartDevice()" class="yellowbtn"><i class="fa fa-repeat" aria-hidden="true"></i></button>
+                            <!--            <div class="inputs">
+                                <input type="text" placeholder="Input 1">
+                                <input type="text" placeholder="Input 2">
+                            </div> -->
+                        </div>
+
+
+                    </div>
+                </div>
+                <div id="tab2" class="tab">
+
+
+
+
+
+
+
+                    <div class="tabfirstdiv settings-container">
+                        <div style="text-align: -webkit-center;width:50%;">
+                            <div style="display:block;">
+                                <div>
+                                    <p class="headertext">@language.Getkey("Mining Config")</p>
+
+                                    <!-- Pin Code -->
+                                    <label>@language.Getkey("Pool Configuration")</label>
+                                    <label for="PoolName">@language.Getkey("Pool Name") : <span>-----</span></label>
+                                    <input type="text" id="PoolName" name="PoolName" placeholder="Enter Pool Name" required>
+                                    <input type="text" id="PoolApiCode" name="PoolApiCode" placeholder="Enter Pool Api Code" required>
+                                    <!-- Login/Logout -->
+                                    <br />
+                                    <button id="loginLogoutBtnx">@language.Getkey("Connect to Pool")</button>
+                                    <hr />
+                                    <!-- Dark/Light Theme -->
+                                    <label for="MiningModel">@language.Getkey("Mining Type")</label>
+                                    <select size="2" id="MiningModel" name="MinigType">
+                                        <option value="Core">@language.Getkey("Core")</option>
+                                        <option value="Transaction">@language.Getkey("Transaction")</option>
+                                    </select>
+
+                                    <hr />
+
+                                    <!-- Strategy -->
+                                    <label for="MiningStrategy">@language.Getkey("Mining Strategy")</label>
+                                    <select size="5" id="MiningStrategy" name="MiningStrategy">
+                                        <option value="Solo CPU Mining">@language.Getkey("Solo CPU Mining")</option>
+                                        <option value="Pool CPU Mining">@language.Getkey("Pool CPU Mining")</option>
+                                        <option value="Spcore Algorithms">@language.Getkey("Spcore Algorithms")</option>
+                                        <option value="Matrix Algorithms">@language.Getkey("Matrix Algorithms")</option>
+                                        <option value="Davinci Algorithms">@language.Getkey("Davinci Algorithms")</option>
+                                    </select>
+
+                                    <hr />
+
+
+
+
+
+
+
+                                    <!-- Auto/Manual Database Download -->
+                                    <label for="CoreDownloadMiner">@language.Getkey("Core Download")</label>
+                                    <select size="2" id="CoreDownloadMiner" name="CoreDownloadMiner">
+                                        <option value="Automatic">@language.Getkey("Automatic")</option>
+                                        <option value="Manual">@language.Getkey("Manual")</option>
+                                    </select>
+                                    <br />
+                                    <button id="downloadCoreBtnx">@language.Getkey("Download Core")</button>
+
+                                </div>
+
+                                <script>
+                                    document.getElementById('loginLogoutBtnx').addEventListener('click', function () {
+                                        const isLoggedIn = confirm('Are you currently logged in? (OK for Yes, Cancel for No)');
+                                        if (isLoggedIn) {
+                                            alert('Logging out...');
+                                            // Perform logout actions here
+                                        } else {
+                                            alert('Logging in...');
+                                            // Perform login actions here
+                                        }
+                                    });
+
+                                    document.getElementById('downloadCoreBtnx').addEventListener('click', function () {
+                                        alert('Downloading database...');
+                                        // Perform database download actions here
+                                    });
+                                </script>
+
+                            </div>
+                        </div>
+                        <div style="text-align: -webkit-center;width:50%;">
+                            <div>
+
+                                <!-- <p>Config Mining</p> -->
+
+                                <p class="headertext">-</p>
+
+                                <label for="PowerManagement">@language.Getkey("Power Management")</label>
+                                <select size="2" id="PowerManagement" name="PowerManagement">
+                                    <option value="Show">@language.Getkey("Show")</option>
+                                    <option value="Hide">@language.Getkey("Hide")</option>
+                                </select>
+                                <hr />
+                                <label for="NotificationAlerts">@language.Getkey("Notification and Alerts")</label>
+                                <select size="4" id="NotificationAlerts" name="NotificationAlerts">
+                                    <option value="Off">@language.Getkey("Off")</option>
+                                    <option value="Alert & Notification">@language.Getkey("Aler & Notification")</option>
+                                    <option value="Notification">@language.Getkey("Notification")</option>
+                                    <option value="Alert">@language.Getkey("Alert")</option>
+                                </select>
+                                <hr />
+                                <label for="HardwareManagement">@language.Getkey("Hardware Management")</label>
+                                <select size="4" id="HardwareManagement" name="HardwareManagement">
+                                    <option value="Protective Systems">@language.Getkey("Protective Systems")</option>
+                                    <option value="Stability Systems">@language.Getkey("Stability Systems")</option>
+                                    <option value="Optimized Config">@language.Getkey("Optimized Config")</option>
+                                    <option value="Maximum Power">@language.Getkey("Maximum Power")</option>
+                                </select>
+                                <hr />
+
+                                <label for="ProxyConfig">@language.Getkey("Pin Code") (Lock Screen & Apps)</label>
+                                <label for="PoolName">@language.Getkey("Proxy") : <span>-----</span></label>
+                                <input type="text" id="ProxyIp" name="ProxyIp" placeholder="Enter Proxt Ip">
+                                <input type="text" id="ProxyPort" name="ProxyPort" placeholder="Enter Proxy Port" required>
+                                <!-- Login/Logout -->
+                                <br />
+                                <button id="loginLogoutBtnx">@language.Getkey("Log In/Log Out")</button>
+
+
+                                <!--
+                                <button>Button 1</button>
+                                <button>Button 2</button>
+                                <button>Button 3</button>
+                                <button>Button 4</button>
+                                <div class="inputs">
+                                    <input type="text" placeholder="Input 1">
+                                    <input type="text" placeholder="Input 2">
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div id="tab3" class="tab">
+                <div style="display:block;">
+
+                    <div class="settings-container" style="display:flex;">
+                        <div style="display:block;width:65vw;">
+
+                            <p class="headertext">@language.Getkey("Balance") : <span id="devicebalance">1.0000000</span> SP</p>
+                            <p>@language.Getkey("Wallet Address") : <span id="MyStaticWalletAddress">----</span>  <i class="fa fa-files-o"></i> </p>
+                            <div class="inputs">
+                                <input type="text" placeholder="Amount">  <button>@language.Getkey("Withdrawal To Wallet")</button>
+                                <input type="text" style="min-width: 60vw;" placeholder="Wallet"><br />
+
+                            </div>
+
+                            <p>@language.Getkey("Withdrawal To Card")</p>
+                            <div class="inputs">
+
+                                <input type="text" placeholder="Amount">
+                                <button>@language.Getkey("Withdrawal To Card")</button>
+                            </div>
+
+
+                        </div>
+
+                        <div style="width:20vw;text-align: -webkit-center;">
+                            <p class="headertext">@language.Getkey("Wallet QR Code")</p>
+                            <canvas id="qrwallet"></canvas>
+                        </div>
+                    </div>
+                    <div style="padding: 2vw;display:block;">
+                        <!-- <div class="settings-container"> -->
+                        <div class="listheaderbtn">
+
+                            <button>@language.Getkey("LastPage")</button>
+
+                            <button>@language.Getkey("All Transactions")</button>
+                            <button>@language.Getkey("ToCards Transactions")</button>
+                            <button>@language.Getkey("ToWallet Transactions")</button>
+
+                            <button>@language.Getkey("NextPage")</button>
+                        </div>
+
+                        <!-- </div> -->
+                        <input type="text" class="myInput" id="myTransactionInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+
+                        <table class="myTable" id="TransationHistory">
+                            <tr class="header">
+                                <th style="width:30%;">@language.Getkey("From")</th>
+                                <th style="width:30%;">@language.Getkey("To")</th>
+                                <th style="width:20%;">@language.Getkey("Amount")</th>
+                                <th style="width:10%;">@language.Getkey("Confirm")</th>
+                                <th style="width:4%;">-</th>
+                                <th style="width:5%;">@language.Getkey("Show")</th>
+                            </tr>
+                            <tr>
+                                <td>bc1pw24n4x42vxev7dl89we3mxze7hj</td>
+                                <td>fstr7rlm0vcw2rac7yv7u672shvufum</td>
+                                <td>12345678,00000000</td>
+                                <td>1</td>
+                                <td><i class="fa fa-arrow-down"></i></td>
+                                <td><i class="fa fa-eye openModalBtn" data-modal="modal4"></i></td>
+                            </tr>
+                            <tr>
+                                <td>fstr7rlm0vcw2rac7yv7u672shvufum</td>
+                                <td>bc1pw24n4x42vxev7dl89we3mxze7hj</td>
+                                <td>87654321,99999999</td>
+                                <td>3</td>
+                                <td><i class="fa fa-arrow-up"></i></td>
+                                <td><i class="fa fa-eye"></i></td>
+                            </tr>
+
+                            <tr>
+                                <td>bc1pw24n4x42vxev7dl89we3mxze7hj</td>
+                                <td>fstr7rlm0vcw2rac7yv7u672shvufum</td>
+                                <td>12345678,00000000</td>
+                                <td>1</td>
+                                <td><i class="fa fa-arrow-down"></i></td>
+                                <td><i class="fa fa-eye"></i></td>
+                            </tr>
+                            <tr>
+                                <td>fstr7rlm0vcw2rac7yv7u672shvufum</td>
+                                <td>bc1pw24n4x42vxev7dl89we3mxze7hj</td>
+                                <td>87654321,99999999</td>
+                                <td>3</td>
+                                <td><i class="fa fa-arrow-up"></i></td>
+                                <td><i class="fa fa-eye"></i></td>
+                            </tr>
+                            <tr>
+                                <td>bc1pw24n4x42vxev7dl89we3mxze7hj</td>
+                                <td>fstr7rlm0vcw2rac7yv7u672shvufum</td>
+                                <td>12345678,00000000</td>
+                                <td>1</td>
+                                <td><i class="fa fa-arrow-down"></i></td>
+                                <td><i class="fa fa-eye"></i></td>
+                            </tr>
+                            <tr>
+                                <td>fstr7rlm0vcw2rac7yv7u672shvufum</td>
+                                <td>bc1pw24n4x42vxev7dl89we3mxze7hj</td>
+                                <td>87654321,99999999</td>
+                                <td>3</td>
+                                <td><i class="fa fa-arrow-up"></i></td>
+                                <td><i class="fa fa-eye"></i></td>
+                            </tr>
+
+                        </table>
+
+                        <script>
+                            function myFunction() {
+                                var input, filter, table, tr, td, i, txtValue;
+                                input = document.getElementById("myTransactionInput");
+                                filter = input.value.toUpperCase();
+                                table = document.getElementById("TransationHistory");
+                                tr = table.getElementsByTagName("tr");
+                                for (i = 0; i < tr.length; i++) {
+                                    td = tr[i].getElementsByTagName("td")[0];
+                                    if (td) {
+                                        txtValue = td.textContent || td.innerText;
+                                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                            tr[i].style.display = "";
+                                        } else {
+                                            tr[i].style.display = "none";
+                                        }
+                                    }
+                                }
+                            }
+                        </script>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+            <div id="tab4" class="tab">
+                <div style="display:block;">
+
+                    <div class="settings-container" style="display:flex;">
+                        <div style="display:block;width:65vw;">
+
+                            <p class="headertext">@language.Getkey("Balance") : <span id="cardbalance">0.0000000</span> SP</p>
+                            <p>@language.Getkey("Wallet Address") : <span id="uidResult">xxxxxxxxxxxxxxxxxxxxxx</span> SP</p>
+                            <div class="inputs">
+                                <input type="text" placeholder="Amount">  <button>@language.Getkey("Withdrawal To Wallet")</button>
+                                <input type="text" style="min-width: 60vw;" placeholder="Wallet"><br />
+                            </div>
+
+                            <p>@language.Getkey("Withdrawal To Card")</p>
+                            <div class="inputs">
+
+                                <input type="text" placeholder="Amount">
+                                <button>@language.Getkey("Withdrawal To Card")</button>
+                            </div>
+
+
+                        </div>
+
+                        <div style="width:20vw;text-align: -webkit-center;">
+                            <div>
+                                <p class="headertext">@language.Getkey("Wallet QR Code")</p>
+                                <canvas id="qrcard"></canvas>
+
+
+                            </div>
+                            <div>
+                                <button id="writeCardButton" style="min-width: 3vw; padding: unset; min-height: 2.5vw;" id="rotate">‌<i class="fa fa-recycle" aria-hidden="true"></i></button>
+                                <button id="readUidButton" style="min-width: 3vw; padding: unset; min-height: 2.5vw;" id="right">‌<i class="fa fa-refresh" aria-hidden="true"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="padding: 2vw;display:block;">
+                        <!-- <div class="settings-container"> -->
+                        <div class="listheaderbtn">
+
+                            <button>@language.Getkey("LastPage")</button>
+
+                            <button>@language.Getkey("All Transactions")</button>
+                            <button>@language.Getkey("ToCards Transactions")</button>
+                            <button>@language.Getkey("ToWallet Transactions")</button>
+
+                            <button>@language.Getkey("NextPage")</button>
+                        </div>
+
+                        <!-- </div> -->
+                        <input type="text" class="myInput" id="myTransactionInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+
+                        <table class="myTable" id="TransationHistory">
+                            <tr class="header">
+                                <th style="width:30%;">@language.Getkey("From")</th>
+                                <th style="width:30%;">@language.Getkey("To")</th>
+                                <th style="width:20%;">@language.Getkey("Amount")</th>
+                                <th style="width:10%;">@language.Getkey("Confirm")</th>
+                                <th style="width:4%;">-</th>
+                                <th style="width:6%;">@language.Getkey("Show")</th>
+                            </tr>
+                            <tr>
+                                <td>bc1pw24n4x42vxev7dl89we3mxze7hj</td>
+                                <td>fstr7rlm0vcw2rac7yv7u672shvufum</td>
+                                <td>12345678,00000000</td>
+                                <td>1</td>
+                                <td><i class="fa fa-arrow-down"></i></td>
+                                <td><i class="fa fa-eye openModalBtn" data-modal="modal4"></i></td>
+                            </tr>
+                            <tr>
+                                <td>fstr7rlm0vcw2rac7yv7u672shvufum</td>
+                                <td>bc1pw24n4x42vxev7dl89we3mxze7hj</td>
+                                <td>87654321,99999999</td>
+                                <td>3</td>
+                                <td><i class="fa fa-arrow-up"></i></td>
+                                <td><i class="fa fa-eye"></i></td>
+                            </tr>
+
+                            <tr>
+                                <td>bc1pw24n4x42vxev7dl89we3mxze7hj</td>
+                                <td>fstr7rlm0vcw2rac7yv7u672shvufum</td>
+                                <td>12345678,00000000</td>
+                                <td>1</td>
+                                <td><i class="fa fa-arrow-down"></i></td>
+                                <td><i class="fa fa-eye"></i></td>
+                            </tr>
+                            <tr>
+                                <td>fstr7rlm0vcw2rac7yv7u672shvufum</td>
+                                <td>bc1pw24n4x42vxev7dl89we3mxze7hj</td>
+                                <td>87654321,99999999</td>
+                                <td>3</td>
+                                <td><i class="fa fa-arrow-up"></i></td>
+                                <td><i class="fa fa-eye"></i></td>
+                            </tr>
+                            <tr>
+                                <td>bc1pw24n4x42vxev7dl89we3mxze7hj</td>
+                                <td>fstr7rlm0vcw2rac7yv7u672shvufum</td>
+                                <td>12345678,00000000</td>
+                                <td>1</td>
+                                <td><i class="fa fa-arrow-down"></i></td>
+                                <td><i class="fa fa-eye"></i></td>
+                            </tr>
+                            <tr>
+                                <td>fstr7rlm0vcw2rac7yv7u672shvufum</td>
+                                <td>bc1pw24n4x42vxev7dl89we3mxze7hj</td>
+                                <td>87654321,99999999</td>
+                                <td>3</td>
+                                <td><i class="fa fa-arrow-up"></i></td>
+                                <td><i class="fa fa-eye"></i></td>
+                            </tr>
+
+                        </table>
+
+                        <script>
+                            function myFunction() {
+                                var input, filter, table, tr, td, i, txtValue;
+                                input = document.getElementById("myTransactionInput");
+                                filter = input.value.toUpperCase();
+                                table = document.getElementById("TransationHistory");
+                                tr = table.getElementsByTagName("tr");
+                                for (i = 0; i < tr.length; i++) {
+                                    td = tr[i].getElementsByTagName("td")[0];
+                                    if (td) {
+                                        txtValue = td.textContent || td.innerText;
+                                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                            tr[i].style.display = "";
+                                        } else {
+                                            tr[i].style.display = "none";
+                                        }
+                                    }
+                                }
+                            }
+                        </script>
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="tab5" class="tab">
+
+                <div style="display:block;">
+                    <div style="padding: 2vw;display:block;">
+                        <p>@language.Getkey("Mining History")</p>
+                        <div class="listheaderbtn">
+
+                            <button>@language.Getkey("LastPage")</button>
+                            <button>@language.Getkey("All Mode")</button>
+                            <button>@language.Getkey("Transaction Mode")</button>
+                            <button>@language.Getkey("Core Mode")</button>
+                            <button>@language.Getkey("NextPage")</button>
+                        </div>
+                        <!--
+                        <div class="inputs">
+                            <input type="text" placeholder="From Date">
+                            <input type="text" placeholder="To Date">
+                        </div> -->
+                    </div>
+                    <div style="padding: 2vw;display:block;">
+
+                        <input type="text" class="myInput" id="myTradeInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+
+                        <table class="myTable" id="TradeHistory">
+                            <tr class="header">
+                                <th style="width:20%;">@language.Getkey("Mining Type")</th>
+                                <th style="width:25%;">@language.Getkey("Block")</th>
+                                <th style="width:20%;">@language.Getkey("Amount")</th>
+                                <th style="width:10%;">@language.Getkey("Hash Size")</th>
+                                <th style="width:10%;">@language.Getkey("Confirm")</th>
+                                <th style="width:15%;">@language.Getkey("Date")</th>
+                                <th style="width:10%;">@language.Getkey("Show")</th>
+                            </tr>
+                            <tr>
+                                <td>TransAction</td>
+                                <td>bc1pw24n4x42vxev7dl89we3mxze7hj</td>
+                                <td>87654321,99999999</td>
+                                <td>305765</td>
+                                <td>20</td>
+                                <td>01.01.2024 18:53:50</td>
+                                <td><i class="fa fa-eye openModalBtn" data-modal="modal5"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Core</td>
+                                <td>2vxev7dl89bc1pw24n4x4we3mxze7hj</td>
+                                <td>12345678,99999999</td>
+                                <td>1246134</td>
+                                <td>20</td>
+                                <td>02.01.2024 18:53:50</td>
+                                <td><i class="fa fa-eye"></i></td>
+                            </tr>
+                            <tr>
+                                <td>TransAction</td>
+                                <td>bc1pw24n4x42vxev7dl89we3mxze7hj</td>
+                                <td>87654321,99999999</td>
+                                <td>305765</td>
+                                <td>20</td>
+                                <td>01.01.2024 18:53:50</td>
+                                <td><i class="fa fa-eye"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Core</td>
+                                <td>2vxev7dl89bc1pw24n4x4we3mxze7hj</td>
+                                <td>12345678,99999999</td>
+                                <td>1246134</td>
+                                <td>20</td>
+                                <td>02.01.2024 18:53:50</td>
+                                <td><i class="fa fa-eye"></i></td>
+                            </tr>
+                            <tr>
+                                <td>TransAction</td>
+                                <td>bc1pw24n4x42vxev7dl89we3mxze7hj</td>
+                                <td>87654321,99999999</td>
+                                <td>305765</td>
+                                <td>20</td>
+                                <td>01.01.2024 18:53:50</td>
+                                <td><i class="fa fa-eye"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Core</td>
+                                <td>2vxev7dl89bc1pw24n4x4we3mxze7hj</td>
+                                <td>12345678,99999999</td>
+                                <td>1246134</td>
+                                <td>20</td>
+                                <td>02.01.2024 18:53:50</td>
+                                <td><i class="fa fa-eye"></i></td>
+                            </tr>
+                        </table>
+
+                        <script>
+                            function myFunction() {
+                                var input, filter, table, tr, td, i, txtValue;
+                                input = document.getElementById("myTradeInput");
+                                filter = input.value.toUpperCase();
+                                table = document.getElementById("TradeHistory");
+                                tr = table.getElementsByTagName("tr");
+                                for (i = 0; i < tr.length; i++) {
+                                    td = tr[i].getElementsByTagName("td")[0];
+                                    if (td) {
+                                        txtValue = td.textContent || td.innerText;
+                                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                            tr[i].style.display = "";
+                                        } else {
+                                            tr[i].style.display = "none";
+                                        }
+                                    }
+                                }
+                            }
+                        </script>
+                    </div>
+                </div>
+            </div>
+            <div id="tab6" class="tab">
+
+
+                <div class="tabfirstdiv settings-container">
+                    <div style="width:50%;text-align: -webkit-center;">
+                        <div style="display:block;">
+                            <div>
+
+                                @* <p class="headertext">@language.Getkey("Settings")</p> *@
+                                <div style="display: flex; place-content: center; align-items: center;">
+
+                                    <div>
+                                        <p>@language.Getkey("Zoom Control")</p>
+                                        <button style="min-width: 4vw;" id="zoom-in">‌<i class="fa fa-plus-square" aria-hidden="true"></i></button>
+                                        <button style="min-width: 4vw;" id="zoom-out">‌<i class="fa fa-minus-square" aria-hidden="true"></i></button>
+
+                                        <p id="zoom-value"></p>
+                                        <div>
+                                            <button style="background-color:red; min-width: 3vw; padding: unset; min-height: 2.5vw;" id="reset">‌<i class="fa fa-repeat" aria-hidden="true"></i></button>
+                                        </div>
+
+                                    </div>
+
+
+                                    <div style="margin: 0vw 0vw 0px 5vw;">
+                                        @*                                     <p>
+                                        @language.Getkey("Rout Control")
+                                        </p> *@
+
+
+                                        <div style="display:grid;">
+                                            <div>
+                                                <button style="min-width: 3vw; padding: unset; min-height: 2.5vw;" id="up">‌<i class="fa fa-arrow-circle-up" aria-hidden="true"></i></button>
+                                            </div>
+                                            <div style="display:flex;">
+                                                <button style="min-width: 3vw; padding: unset; min-height: 2.5vw;" id="left">‌<i class="fa fa-arrow-circle-left" aria-hidden="true"></i></button>
+                                                <button style="min-width: 3vw; padding: unset; min-height: 2.5vw;" id="rotate">‌<i class="fa fa-repeat" aria-hidden="true"></i></button>
+                                                <button style="min-width: 3vw; padding: unset; min-height: 2.5vw;" id="right">‌<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></button>
+                                            </div>
+                                            <div>
+                                                <button style="min-width: 3vw; padding: unset; min-height: 2.5vw;" id="down">‌<i class="fa fa-arrow-circle-down" aria-hidden="true"></i></button>
+                                            </div>
+
+                                        </div>
+                                        @* <p id="rout-value"></p> *@
+                                    </div>
+
+
+                                </div>
+                                <div>
+                                    <!-- Pin Code -->
+                                    <label for="pinCode">@language.Getkey("Pin Code") (Lock Screen & Apps)</label>
+                                    @*  <input class="openModalBtn" data-modal="modal6" type="password" id="OldpinCode" name="pinCode" placeholder="Enter Old Pin Code">
+                                    <input class="openModalBtn" data-modal="modal6" type="password" id="NewpinCode" name="pinCode" placeholder="Enter New Pin Code" required>
+                                    <input class="openModalBtn" data-modal="modal6" type="password" id="RepeatNewpinCode" name="pinCode" placeholder="Repeat New Pin Code" required>
+                                    *@
+                                    <style>
+                                        .input-mask {
+                                            font-family: sans-serif;
+                                            letter-spacing: 2px;
+                                        }
+                                    </style>
+                                    <input style="min-width: 14vw; width: 14vw;" type="text" oninput="maskInput2(event)" maxlength="6" id="NewpinCode" name="pinCode" placeholder="Enter New Pin Code" required>
+                                    <input style="min-width: 14vw; width: 14vw;" type="text" oninput="maskInput3(event)" maxlength="6" id="RepeatNewpinCode" name="pinCode" placeholder="Repeat New Pin Code" required>
+                                    <input style="min-width: 14vw; width: 14vw;" type="text" oninput="maskInput1(event)" maxlength="6" id="OldpinCode" name="pinCode" placeholder="Enter Old Pin Code">
+                                    <button style="min-width: 16vw; width: 16vw;" onclick="ChangePin()" id="ChangePin">Change Pin</button>
+
+                                    <input type="hidden" id="realInput1">
+                                    <input type="hidden" id="realInput2">
+                                    <input type="hidden" id="realInput3">
+                                    <script>
+                                        let realValue1 = '';
+
+                                        function maskInput1(event) {
+                                            const input1 = event.target;
+                                            const value = input1.value;
+                                            const newChar = value.length > realValue1.length ? value.slice(-1) : '';
+
+                                            if (/\d/.test(newChar)) {
+                                                realValue1 += newChar; // افزودن کاراکتر جدید به مقدار واقعی
+                                            } else if (value.length < realValue1.length) {
+                                                realValue1 = realValue1.slice(0, -1); // حذف آخرین عدد اگر کاربر حذف کرده باشد
+                                            }
+                                            input1.value = '*'.repeat(realValue1.length);
+                                            document.getElementById('realInput1').value = realValue1;
+                                        }
+                                    </script>
+                                    <script>
+                                        let realValue2 = '';
+
+                                        function maskInput2(event) {
+                                            const input2 = event.target;
+                                            const value = input2.value;
+                                            const newChar = value.length > realValue2.length ? value.slice(-1) : '';
+
+                                            if (/\d/.test(newChar)) {
+                                                realValue2 += newChar; // افزودن کاراکتر جدید به مقدار واقعی
+                                            } else if (value.length < realValue2.length) {
+                                                realValue2 = realValue2.slice(0, -1); // حذف آخرین عدد اگر کاربر حذف کرده باشد
+                                            }
+                                            input2.value = '*'.repeat(realValue2.length);
+                                            document.getElementById('realInput2').value = realValue2;
+                                        }
+                                    </script>
+                                    <script>
+                                        let realValue3 = '';
+
+                                        function maskInput3(event) {
+                                            const input3 = event.target;
+                                            const value = input3.value;
+                                            const newChar = value.length > realValue3.length ? value.slice(-1) : '';
+
+                                            if (/\d/.test(newChar)) {
+                                                realValue3 += newChar; // افزودن کاراکتر جدید به مقدار واقعی
+                                            } else if (value.length < realValue3.length) {
+                                                realValue3 = realValue3.slice(0, -1); // حذف آخرین عدد اگر کاربر حذف کرده باشد
+                                            }
+                                            input3.value = '*'.repeat(realValue3.length);
+                                            document.getElementById('realInput3').value = realValue3;
+                                        }
+                                    </script>
+
+                                </div>
+                                <hr />
+
+                                <div style="display: flex; justify-content: center;">
+
+                                    <!-- Login/Logout -->
+                                    <!-- <button id="loginLogoutBtn">Log In/Log Out</button> -->
+                                    <!-- Auto/Manual Database Download -->
+                                    <label for="dbDownload">@language.Getkey("")</label>
+                                    <select style="min-width: 14vw; width: 14vw;margin: 0px 1vw;" size="2" id="dbDownload" name="dbDownload">
+                                        <option value="Automatic">@language.Getkey("Automatic")</option>
+                                        <option value="Manual">@language.Getkey("Manual")</option>
+                                    </select>
+                                    <button style="min-width: 15.6vw; width: 15.6vw;" id="downloadDbBtn">@language.Getkey("Database Download") </button>
+
+
+                                </div>
+                                <hr />
+
+                                <div style="justify-content: center;display: flex;">
+                                    <div style="margin: 0vw 2vw 0px 3px;">
+                                        <!-- Dark/Light Theme -->
+                                        <label for="theme">@language.Getkey("Theme")</label>
+                                        <select style="min-width: 15.6vw; width: 15.6vw;" size="2" id="theme" name="theme">
+                                            <option value="Light">@language.Getkey("Light")</option>
+                                            <option value="Dark">@language.Getkey("Dark")</option>
+                                        </select>
+                                    </div>
+                                    <div style="">
+                                        <!-- Show/Hide Account Balance -->
+                                        <label for="balanceDisplay">@language.Getkey("Display Account Balance")</label>
+                                        <select style="min-width: 15.6vw; width: 15.6vw;" size="2" id="balanceDisplay" name="balanceDisplay">
+                                            <option value="Show">@language.Getkey("Show")</option>
+                                            <option value="Hide">@language.Getkey("Hide")</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+                                <hr />
+
+                                <div style="display: flex; place-content: center; ">
+                                    <div>
+                                        <label for="lcdSelect">@language.Getkey("Display LCD")</label>
+                                        <select style="width:15.6vw;min-width:15.6vw;" size="4" name="lcdSelect" id="lcdSelect">
+                                            <option value="240">2.4 inch</option>
+                                            <option value="280">2.8 inch</option>
+                                            <option value="330">3.3 inch</option>
+                                            <option value="350">3.5 inch</option>
+                                            <option value="400">4.0 inch</option>
+                                            <option value="500">5.0 inch</option>
+                                            <option value="700">7.0 inch</option>
+                                            <option value="1000">10.0 inch</option>
+                                        </select>
+                                        <br />
+                                        <button id="applyLcd"> @language.Getkey("install LCD")</button>
+
+                                        <div id="statusx"></div>
+
+                                    </div>
+
+                                    <div>
+                                        <label for="RoutLCD">@language.Getkey("Rout LCD")</label>
+                                        <select id="rotationSelect" style="width:15.6vw;min-width:15.6vw;" size="4" id="RoutLCD" name="RoutLCD">
+                                            <option value="0">Normal (0°)</option>
+                                            <option value="1">90°</option>
+                                            <option value="2">180°</option>
+                                            <option value="3">270°</option>
+                                        </select>
+                                        <br />
+                                        <button id="applyRotation">@language.Getkey("Roout LCD")</button>
+                                        <div id="status"></div>
+                                    </div>
+                                </div>
+
+
+
+
+
+                            </div>
+
+                            <script>
+                                document.getElementById('loginLogoutBtnx').addEventListener('click', function () {
+                                    const isLoggedIn = confirm('Are you currently logged in? (OK for Yes, Cancel for No)');
+                                    if (isLoggedIn) {
+                                        alert('Logging out...');
+                                        // Perform logout actions here
+                                    } else {
+                                        alert('Logging in...');
+                                        // Perform login actions here
+                                    }
+                                });
+
+                                document.getElementById('downloadDbBtn').addEventListener('click', function () {
+                                    alert('Downloading database...');
+                                    // Perform database download actions here
+                                });
+                            </script>
+
+                        </div>
+                    </div>
+                    <div style="width:50%;text-align: -webkit-center;">
+                        <div>
+                            <div style="display:flex;align-items: center; justify-content: center;">
+
+                                <div>
+                                    <h3>
+                                        @language.Getkey("Connection with Mobile")
+                                        @* <br /> @language.Getkey("QR Code") *@
+                                    </h3>
+                                    <div style="max-width: min-content;">
+                                        <label id="LocalIpSetting">0.0.0.0</label>
+
+                                        <canvas style="max-width: 100%;" id="qrdevice"></canvas>
+                                    </div>
+                                    <label for="WifiDisConnection">Wi-Fi Connection</label>
+                                </div>
+                                <div>
+                                    <div class="inputs">
+                                        <div style="display:flex;align-items: center; justify-content: center;">
+                                            <label for="Wificonnection">@language.Getkey("Wi-Fi Connection")</label>
+                                            <button style="min-width: 3vw; padding: unset; min-height: 2.5vw;" id="reconnectWifiButton">‌<i class="fa fa-repeat" aria-hidden="true"></i></button>
+                                            <button style="min-width: 5vw; padding: unset; min-height: 2.5vw;" onclick="GetWifiList()">@language.Getkey("Scan")</button>
+                                        </div>
+                                        <select style="width:15.6vw;min-width:15.6vw;" size="5" id="Wificonnection" name="Wificonnection">
+                                            @*                                     <option value="Wlan1">Wlan1</option>
+                                            <option value="Wlan2">Wlan2</option> *@
+                                        </select>
+
+
+
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+                            <div style="display:flex;align-items: center; justify-content: center;">
+                                <input style="width:15.6vw;min-width:15.6vw;" type="password" id="wlanpassword" placeholder="Enter Wifi Password">
+                                <!-- <input type="text" placeholder="Input 2"> -->
+                                <button style="width:8vw;min-width:8vw;" onclick="ConnectToWifi()">@language.Getkey("Connect")</button>
+
+                            </div>
+                            <!-- <button>DisConnect</button> -->
+
+
+
+                            <label for="Language">@language.Getkey("Language")</label>
+                            <select size="4" id="Language" name="Language" onchange="changeLanguage(this)">
+                                <option value="en-US">English</option>
+                                <option value="de-DE">Deutsch</option>
+                                <option value="tr-TR">Turkish</option>
+                                <option value="ar-AR">عربی</option>
+                                <option value="es-ES">Spanish</option>
+                                <option value="fa-IR">فارسی</option>
+                                <option value="fr-FR">French</option>
+                                <option value="it-IT">Italian</option>
+                            </select>
+                            <script>
+
+                                function changeLanguage(selectElement) {
+
+                                    // alert(selectElement.value);
+                                    var selectedLanguage = selectElement.value;
+                                    var url = `@Url.Action("ChangeLanguage", "Home", new { culture = "__culture__" })`.replace("__culture__", selectedLanguage);
+                                    window.location.href = url;
+                                }
+
+                            </script>
+                            <label for="VpnDisConnection">@language.Getkey("VPN DisConnection")</label>
+                            <!-- <button>DisConnect</button> -->
+                            <div class="inputs">
+                                <label for="VpnConnection">@language.Getkey("Vpn Connection")</label>
+                                <input style="min-width: 39%; width: 30%;" type="text" id="vpnadressip" placeholder="Enter Ip Server">
+                                <input style="min-width: 38%; width: 30%;margin:0px;"  type="text" id="vpnusername" placeholder="Enter UserName">
+                                <input style="min-width: 42%; width: 30%;" type="password" id="vpnpassword" placeholder="Enter Password">
+                                <button>@language.Getkey("Connect")</button>
+                            </div>
+
+
+
+
+
+                            <div style="display: flex; place-content: center; ">
+                                <div>
+
+                                    <label for="fanspeed">@language.Getkey("Fan Speed")</label>
+                                    <select style="width:15.6vw;min-width:15.6vw;" size="3" name="fanspeed" id="fanspeed">
+
+                                        <option value="medium">Default</option>
+                                        <option value="high">Turbo +30%</option>
+                                        <option value="low">Echo -30%</option>
+                                    </select>
+                                    <br />
+                                    <button id="FanSpeedBtn"> @language.Getkey("FanSpeed")</button>
+
+                                </div>
+
+
+
+                                <div style="display:grid;">
+                                    <div>
+
+                                        <p>@language.Getkey("Light show")</p>
+                                        <label class="switch">
+                                            <input onchange="ManageRgb(this.checked)" type="checkbox" checked>
+                                            <span class="slider round"></span>
+                                        </label>
+
+                                    </div>
+                                    <hr />
+                                    <div>
+
+                                        <p>@language.Getkey("Device light")</p>
+                                        <label class="switch">
+                                            <input onchange="ManageLed(this.checked)" type="checkbox" checked>
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <script>
+                                document.getElementById('FanSpeedBtn').addEventListener('click', function () {
+                                    const speed = document.getElementById('fanspeed').value;
+                                    if (speed == "medium") {
+                                        EchoLed = 'green_on'; 
+                                        if (DeviceLed == true) {toggleLED('echo', 'green_on');  }  
+                                    } else if (speed == "high") {
+                                        EchoLed = 'yellow_on';
+                                        if (DeviceLed == true) {toggleLED('echo', 'yellow_on');  }  
+                                    } else {
+                                        EchoLed = 'red_on'; 
+                                        if (DeviceLed == true) {toggleLED('echo', 'red_on'); }  
+                                    }
+                                    // fetch('/Home/FanSpeed', {
+                                    //     method: 'POST',
+                                    //     headers: {
+                                    //         'Content-Type': 'application/json'
+                                    //     },
+                                    //     body: JSON.stringify({ rotation: speed })
+                                    // })
+                                    //     .then(response => response.json())
+                                    //     .then(data => {
+                                    //         console.log("speed okey");
+                                    //     })
+                                    //     .catch(error => {
+                                    //         console.error('Error:', error);
+                                    //     });
+
+
+                                     
+                                    fetch('/Home/SetFanMode', {
+                                        method: 'POST',
+                                        headers: {
+                                            'Content-Type': 'application/json'
+                                        },
+                                        body: JSON.stringify({
+                                            mode: speed
+                                        })
+                                    })
+                                        .then(response => response.json())
+                                        .then(data => {
+                                            // console.log(data.message);  // نمایش پیام موفقیت
+                                        })
+                                        .catch(error => {
+                                            console.error('Error:', error);
+                                        }); 
+
+                                });
+
+                                 
+                                function sendRequest(action) {
+                                    const url = `/Home/${action}`;
+                                    fetch(url, { method: 'POST' })
+                                        .then(response => response.text())
+                                        .then(data => 
+                                            console.log("data")
+                                        )
+                                        .catch(error => console.error('Error:', error));
+                                } 
+
+                                function ManageRgb(stat) {
+                                    if (stat == true) { 
+                                        RgbShow = true; 
+                                        sendRequest('StartService');
+                                    } else { 
+                                        RgbShow = false; 
+                                        sendRequest('StopService');
+                                    }
+
+                                }
+
+
+                                function ManageLed(stat) {
+                                    if (stat == true ) {
+                                        toggleLED('echo', EchoLed);
+                                        toggleLED('cart', CartLed);
+                                        toggleLED('connection', ConnectionLed);
+                                        toggleLED('cpu', CpuLed);
+                                        toggleLED('logo', LogoLed);
+                                        
+
+                                   //      CpuLed = 'red_on';
+                                   // EchoLed = 'green_on';
+                                   // ConnectionLed = 'red_on';
+                                   // LogoLed = 'white_on';
+                                   // CartLed = 'red_on';
+                                   // RgbShow = true;
+                                   // DeviceLed = true; 
+
+
+
+                                        DeviceLed = true;
+                                    }else{
+                                        toggleLED('echo', 'off'); 
+                                        toggleLED('echo', 'off');
+                                        toggleLED('cart', 'off');
+                                        toggleLED('connection', 'off');
+                                        toggleLED('cpu', 'off');
+                                        toggleLED('logo', 'off');
+
+
+                                        DeviceLed = false;
+                                    }
+                                }
+
+                            </script>
+
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab7" class="tab">
+                <div style="display: grid;justify-content: center;width:100%;"> 
+
+                    <h1>@language.Getkey("SpCore Project")</h1>
+                     
+                    <img src="Images/lgwhite.png" style="width: 30vw; justify-self: center;" />
+                    <p>Copyright  <i class="fa fa-copyright" aria-hidden="true"></i> SpCore Company - 2024, Inc. All Rights Reserved</p>
+                    <p>Create by Masih Admin@SpCore.pro  - www.SpCore.Pro </p>
+
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <!--
+
+        <button class="openModalBtn" data-modal="modal1">Open Modal 1</button>
+        <button class="openModalBtn" data-modal="modal2">Open Modal 2</button>
+        <button class="openModalBtn" data-modal="modal3">Open Modal 3</button>
+        <button class="openModalBtn" data-modal="modal4">Open Modal 4</button>
+        <button class="openModalBtn" data-modal="modal5">Open Modal 5</button>
+        <button class="openModalBtn" data-modal="modal6">Open Modal 6</button> -->
+        <!-- The Modals -->
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <!-- <span class="close" data-modal="modal1">&times;</span> -->
+                    <span class="close" data-modal="modal1" tabindex="0">&times;</span>
+                    <p class="headertext">@language.Getkey("QR Static Wallet")</p>
+                </div>
+                <div class="modal-body">
+                    <canvas id="qrwalletpopup"></canvas>
+                </div>
+                <div class="modal-footer">
+                    <p id="walletaddresspopup">@language.Getkey("Wallet Address")</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal2" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <!-- <span class="close" data-modal="modal1">&times;</span> -->
+                    <span class="close" data-modal="modal2" tabindex="0">&times;</span>
+                    <p class="headertext">@language.Getkey("QR Card Wallet")</p>
+                </div>
+                <div class="modal-body">
+                    <canvas id="qrcardpopup"></canvas>
+                </div>
+                <div class="modal-footer">
+                    <p id="walletaddresspopup">@language.Getkey("Wallet Address")</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal3" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close" data-modal="modal3" tabindex="0">&times;</span>
+                    <p class="headertext">@language.Getkey("QR Conect to Device")</p>
+                </div>
+                <div class="modal-body">
+                    <canvas id="qrdevicepopup"></canvas>
+                </div>
+                <div class="modal-footer">
+                    <p>http://<span id="myippopup">192.168.2.2</span>/welcome</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal4" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close" data-modal="modal4" tabindex="0">&times;</span>
+                    <p class="headertext">@language.Getkey("SpCore Transaction")</p>
+                </div>
+                <div class="modal-body">
+                    <p>From : <span>-</span></p>
+                    <p>To : <span>-</span></p>
+                    <p>Amount : <span>-</span></p>
+                    <p>Fee : <span>-</span></p>
+                    <p>Size : <span>-</span></p>
+                    <p>Time :  <span>-</span></p>
+                    <p>Confirm :  <span>-</span></p>
+                    <p>Block ID : <span>-</span></p>
+                    <p>Hash ID : <span>-</span></p>
+                </div>
+                <div class="modal-footer">
+                    <p class="headertext">@language.Getkey("Transaction details")</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal5" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close" data-modal="modal5" tabindex="0">&times;</span>
+                    <p class="headertext">@language.Getkey("Spcore Block Detail")</p>
+                </div>
+                <div class="modal-body" style="display: flex;">
+                    <div style="width:50%;">
+                        <p>Hash : <span>-</span></p>
+                        <p>Distance : <span>-</span></p>
+                        <p>Input Value : <span>-</span></p>
+                        <p>Output Value : <span>-</span></p>
+                        <p>Fees : <span>-</span></p>
+                        <p>Depth : <span>-</span></p>
+                        <p>Size : <span>-</span></p>
+                        <p>Version : <span>-</span></p>
+                        <p>Difficulty : <span>-</span></p>
+
+                        <p>Miner : <span>-</span></p>
+                        <p>Date : <span>-</span></p>
+                        <p>Block ID : <span>-</span></p>
+                        <p>Transactions : <span>-</span></p>
+                    </div>
+                    <div style="width:50%;">
+                        <p>Bits : <span>-</span></p>
+                        <p>Minted : <span>-</span></p>
+                        <p>Height : <span>-</span></p>
+                        <p>Confirmations : <span>-</span></p>
+                        <p>Pool : <span>-</span></p>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <p class="headertext">@language.Getkey("Spcore Block Detail")</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal6" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <span class="close" data-modal="modal6" tabindex="0">&times;</span>
+                    <p class="headertext">@language.Getkey("Enter Pin Code")</p>
+                </div>
+                <div class="modal-body">
+
+
+                    <div id="display"></div>
+                    <div id="keyboard">
+                        <div>
+                            <button class="keyboard-btn">1</button>
+                            <button class="keyboard-btn">2</button>
+                            <button class="keyboard-btn">3</button>
+                        </div>
+                        <div>
+                            <button class="keyboard-btn">4</button>
+                            <button class="keyboard-btn">5</button>
+                            <button class="keyboard-btn">6</button>
+                        </div>
+                        <div>
+                            <button class="keyboard-btn">7</button>
+                            <button class="keyboard-btn">8</button>
+                            <button class="keyboard-btn">9</button>
+                        </div>
+                        <div>
+                            <button class="keyboard-btn" id="clear-btn">Clear</button>
+                            <button class="keyboard-btn">0</button>
+                            <button class="keyboard-btn" id="enter-btn">Enter</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <p class="headertext">@language.Getkey("Please Enter Code")</p>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div id="modal7" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close" data-modal="modal4" tabindex="0">&times;</span>
+                    <p class="headertext">@language.Getkey("SpCore Message Box")</p>
+                </div>
+                <div class="modal-body">
+                    <p>@language.Getkey("You must first select a PIN for your device")<span>.</span></p>
+                </div>
+                <div class="modal-footer">
+                    <p class="headertext">@language.Getkey("Created by SpCore Team")</p>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+        <!--
+            <div class="container">
+                <input type="text" id="inputField" placeholder="Click to type..." />
+                <input type="text" id="inputField2" placeholder="Click to type..." />
+                <input type="text" id="inputField3" placeholder="Click to type..." />
+                <input type="text" id="inputField4" placeholder="Click to type..." />
+            </div> -->
+
+
+        <div id="virtualnumberKeyboard" class="keyboard">
+            <div class="row">
+                <button class="key" data-normal="1">1</button>
+                <button class="key" data-normal="2">2</button>
+                <button class="key" data-normal="3">3</button>
+            </div>
+            <div class="row">
+                <button class="key" data-normal="4">4</button>
+                <button class="key" data-normal="5">5</button>
+                <button class="key" data-normal="6">6</button>
+            </div>
+            <div class="row">
+                <button class="key" data-normal="7">7</button>
+                <button class="key" data-normal="8">8</button>
+                <button class="key" data-normal="9">9</button>
+            </div>
+            <div class="row">
+                <button class="key" data-normal="0">0</button>
+
+                <button class="key backspace">@language.Getkey("Clear")</button>
+                <button class="key enter">@language.Getkey("Enter")</button>
+                <button class="key close">@language.Getkey("Close")</button>
+            </div>
+        </div>
+
+        <div id="virtualKeyboard" class="keyboard">
+            <div class="row">
+                <!-- Number keys -->
+                <button class="key" data-normal="1" data-shift="!">1</button>
+                <button class="key" data-normal="2" data-shift="@@">2</button>
+                <button class="key" data-normal="3" data-shift="#">3</button>
+                <button class="key" data-normal="4" data-shift="$">4</button>
+                <button class="key" data-normal="5" data-shift="%">5</button>
+                <button class="key" data-normal="6" data-shift="^">6</button>
+                <button class="key" data-normal="7" data-shift="&">7</button>
+                <button class="key" data-normal="8" data-shift="*">8</button>
+                <button class="key" data-normal="9" data-shift="(">9</button>
+                <button class="key" data-normal="0" data-shift=")">0</button>
+                <button class="key" data-normal="-" data-shift="_">-</button>
+                <button class="key" data-normal="=" data-shift="+">=</button>
+            </div>
+            <div class="row">
+                <!-- Alphabet keys -->
+                <button class="key" data-normal="q" data-shift="Q">q</button>
+                <button class="key" data-normal="w" data-shift="W">w</button>
+                <button class="key" data-normal="e" data-shift="E">e</button>
+                <button class="key" data-normal="r" data-shift="R">r</button>
+                <button class="key" data-normal="t" data-shift="T">t</button>
+                <button class="key" data-normal="y" data-shift="Y">y</button>
+                <button class="key" data-normal="u" data-shift="U">u</button>
+                <button class="key" data-normal="i" data-shift="I">i</button>
+                <button class="key" data-normal="o" data-shift="O">o</button>
+                <button class="key" data-normal="p" data-shift="P">p</button>
+                <button class="key" data-normal="[" data-shift="{">[</button>
+                <button class="key" data-normal="]" data-shift="}">]</button>
+            </div>
+            <div class="row">
+                <!-- More keys -->
+                <button class="key" data-normal="a" data-shift="A">a</button>
+                <button class="key" data-normal="s" data-shift="S">s</button>
+                <button class="key" data-normal="d" data-shift="D">d</button>
+                <button class="key" data-normal="f" data-shift="F">f</button>
+                <button class="key" data-normal="g" data-shift="G">g</button>
+                <button class="key" data-normal="h" data-shift="H">h</button>
+                <button class="key" data-normal="j" data-shift="J">j</button>
+                <button class="key" data-normal="k" data-shift="K">k</button>
+                <button class="key" data-normal="l" data-shift="L">l</button>
+                <button class="key" data-normal=";" data-shift=":">;</button>
+                <button class="key" data-normal="'" data-shift="&quot;">'</button>
+                <button class="key" data-normal="\\" data-shift="|">\\</button>
+            </div>
+            <div class="row">
+                <!-- Additional keys -->
+                <button class="key" data-normal="z" data-shift="Z">z</button>
+                <button class="key" data-normal="x" data-shift="X">x</button>
+                <button class="key" data-normal="c" data-shift="C">c</button>
+                <button class="key" data-normal="v" data-shift="V">v</button>
+                <button class="key" data-normal="b" data-shift="B">b</button>
+                <button class="key" data-normal="n" data-shift="N">n</button>
+                <button class="key" data-normal="m" data-shift="M">m</button>
+                <button class="key" data-normal="/" data-shift="?">/</button>
+                <button class="key" data-normal="." data-shift=">">.</button>
+                <button class="key" data-normal="," data-shift="<">,</button>
+                <button class="key move-left">←</button>
+                <button class="key move-right">→</button>
+            </div>
+            <div class="row">
+                <!-- New buttons -->
+                <button class="key backspace">@language.Getkey("Clear")</button>
+                <button class="key paste">@language.Getkey("Paste")</button>
+                <button class="key shift">@language.Getkey("Shift")</button>
+                <button class="key space">@language.Getkey("Space")</button>
+                <button class="key enter">@language.Getkey("Enter")</button>
+                <button class="key close">@language.Getkey("Close")</button>
+            </div>
+        </div>
+
+    </header>
+</div>
+<!-- partial -->
+<script src="js/keyboard.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/script.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        let currentTab = 0;
+        const tabs = document.querySelectorAll('.tab');
+        const tabButtons = document.querySelectorAll('.menu__icon a');
+        //const focusableElementsString = 'select, button, input[type="text"]';
+        const focusableElementsString = 'select, button, input[type="text"], input[type="password"], input[type="number"], input[type="submit"]';
+
+        function showTab(index) {
+            tabs.forEach((tab, i) => {
+                tab.classList.toggle('active', i === index);
+            });
+            tabButtons.forEach((button, i) => {
+                button.classList.toggle('active', i === index);
+            });
+            currentTab = index;
+            setFocusToFirstElement(tabs[currentTab]);
+        }
+
+        function setFocusToFirstElement(tab) {
+            const focusableElements = tab.querySelectorAll(focusableElementsString);
+            if (focusableElements.length) {
+                focusableElements[0].focus();
+            }
+        }
+
+        tabButtons.forEach((button, index) => {
+            button.addEventListener('click', () => showTab(index));
+        });
+
+        document.addEventListener('keydown', function (e) {
+            const activeTab = tabs[currentTab];
+            const focusableElements = activeTab.querySelectorAll(focusableElementsString);
+            const activeElementIndex = Array.prototype.indexOf.call(focusableElements, document.activeElement);
+
+            switch (e.key) {
+                case 'ArrowRight':
+                    if (activeElementIndex > -1 && activeElementIndex < focusableElements.length - 1) {
+                        focusableElements[activeElementIndex + 1].focus();
+                    }
+                    break;
+                case 'ArrowLeft':
+                    if (activeElementIndex > 0) {
+                        focusableElements[activeElementIndex - 1].focus();
+                    }
+                    break;
+                case 'Enter':
+                    if (document.activeElement.tagName.toLowerCase() === 'button') {
+                        document.activeElement.click();
+                    } else if (document.activeElement.tagName.toLowerCase() === 'input') {
+                        document.activeElement.select();
+                    }
+                    break;
+                case 'Escape':
+                    document.activeElement.blur();
+                    break;
+                case 'Tab':
+                    e.preventDefault();
+                    if (e.shiftKey) {
+                        showTab((currentTab - 1 + tabs.length) % tabs.length);
+                    } else {
+                        showTab((currentTab + 1) % tabs.length);
+                    }
+                    break;
+            }
+        });
+
+        // Initialize the first tab
+        showTab(currentTab);
+    });
+</script>
+<script src="js/qrious.min.js"></script>
+<script src="js/qr.js">  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    // Get all modal elements
+    var modals = document.getElementsByClassName('modal');
+
+    // Get all button elements that open the modals
+    var btns = document.getElementsByClassName('openModalBtn');
+
+    // Get all <span> elements that close the modals
+    var spans = document.getElementsByClassName('close');
+
+    // Function to open a specific modal
+    function openModal(modalId) {
+        var modal = document.getElementById(modalId);
+        modal.style.display = 'block';
+        modal.querySelector('.close').focus(); // Focus on the close button
+    }
+
+    // Function to close a specific modal
+    function closeModal(modalId) {
+        document.getElementById(modalId).style.display = "none";
+    }
+
+    // Loop through all buttons and attach event listeners
+    for (let btn of btns) {
+        btn.onclick = function () {
+            openModal(this.getAttribute('data-modal'));
+        }
+    }
+
+    // Loop through all <span> elements and attach event listeners
+    for (let span of spans) {
+        span.onclick = function () {
+            closeModal(this.getAttribute('data-modal'));
+        }
+        span.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter' || event.key === ' ') {
+                closeModal(this.getAttribute('data-modal'));
+            }
+        });
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        for (let modal of modals) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    }
+
+    // Handling button clicks for Modal 6
+    var display = document.getElementById('display');
+    var clearBtn = document.getElementById('clear-btn');
+    var enterBtn = document.getElementById('enter-btn');
+
+    // Add event listener for keyboard buttons
+    document.getElementById('keyboard').addEventListener('click', function (event) {
+        if (event.target.classList.contains('keyboard-btn') && event.target !== clearBtn && event.target !== enterBtn) {
+            var key = event.target.textContent;
+            display.textContent += key;
+        }
+    });
+
+    // Clear button functionality
+    clearBtn.onclick = function () {
+        display.textContent = display.textContent.slice(0, -1);
+    }
+
+    // Enter button functionality
+    enterBtn.onclick = function () {
+        // alert(display.textContent);
+        CheckPin(display.textContent);
+        display.textContent = '';
+    }
+
+    // Add keyboard navigation for Modal 6
+    var keyboardBtns = document.querySelectorAll('#keyboard .keyboard-btn');
+    var closeBtnModal6 = document.querySelector('#modal6 .close');
+    var currentIndex = 0;
+
+    function focusButton(index) {
+        keyboardBtns[index].focus();
+    }
+
+    document.addEventListener('keydown', function (event) {
+        if (document.getElementById('modal6').style.display === 'block') {
+            switch (event.key) {
+                case 'ArrowUp':
+                    if (currentIndex > 2) {
+                        currentIndex -= 3;
+                        focusButton(currentIndex);
+                    }
+                    break;
+                case 'ArrowDown':
+                    if (currentIndex < keyboardBtns.length - 3) {
+                        currentIndex += 3;
+                        focusButton(currentIndex);
+                    }
+                    break;
+                case 'ArrowLeft':
+                    if (currentIndex % 3 !== 0) {
+                        currentIndex -= 1;
+                        focusButton(currentIndex);
+                    }
+                    break;
+                case 'ArrowRight':
+                    if (currentIndex % 3 !== 2 && currentIndex < keyboardBtns.length - 1) {
+                        currentIndex += 1;
+                        focusButton(currentIndex);
+                    }
+                    break;
+                case 'Enter':
+                case ' ':
+                    if (document.activeElement === keyboardBtns[currentIndex]) {
+                        keyboardBtns[currentIndex].click();
+                        event.preventDefault(); // Prevent the default behavior of Enter/Space key
+                    } else if (document.activeElement === closeBtnModal6) {
+                        closeModal('modal6');
+                    } else if (document.activeElement === enterBtn) {
+                        enterBtn.click();
+                    }
+                    break;
+                case 'Backspace':
+                    display.textContent = display.textContent.slice(0, -1);
+                    break;
+                case 'Tab':
+                    if (document.activeElement === keyboardBtns[currentIndex]) {
+                        closeBtnModal6.focus();
+                    } else if (document.activeElement === closeBtnModal6) {
+                        enterBtn.focus();
+                    } else if (document.activeElement === enterBtn) {
+                        focusButton(currentIndex);
+                    }
+                    event.preventDefault();
+                    break;
+                default:
+                    if (!isNaN(event.key)) {
+                        display.textContent += event.key;
+                    }
+            }
+        }
+    });
+
+    // Initial focus on close button when modal opens
+    for (let modal of modals) {
+        modal.addEventListener('show', function () {
+            var closeBtn = modal.querySelector('.close');
+            closeBtn.focus();
+        });
+    }
+</script>
+
+
+
+
+
+<script>
+
+
+    GetSettings("1");
+    function GetSettings(page) {
+        var formData = new FormData();
+        formData.append("Pin", page);
+
+        $.ajax(
+            {
+                url: "/Home/CheckDatabase",
+                data: formData,
+                processData: false,
+                contentType: false,
+                type: "POST",
+                success: function (response) {
+
+
+
+                    // let b = 0;
+                    // var n = response.length;
+                    // do {
+                    // console.log(response);
+                    document.getElementById("devicebalance").innerText = "" + response.balance;
+                    document.getElementById("devicebalancedashboard").innerText = "" + response.balance;
+                    document.getElementById("vpnadressip").innerText = "" + response.VpnIp;
+                    document.getElementById("vpnusername").innerText = "" + response.VpnUser;
+                    document.getElementById("vpnpassword").innerText = "" + response.VpnPass;
+                    document.getElementById("wlanpassword").innerText = "" + response.WlanPass;
+
+                    var themeSelect = document.getElementById("theme");
+                    themeSelect.value = response.theme;
+
+                    var LcdSelect = document.getElementById("lcdSelect");
+                    LcdSelect.value = response.display;
+
+
+                    var WlanSelect = document.getElementById("Wificonnection");
+                    WlanSelect.value = response.wlanName;
+
+                    var dbDlSelect = document.getElementById("dbDownload");
+
+                    if (response.AutoDownload == true) {
+                        dbDlSelect.value = "Automatic";
+                    } else {
+                        dbDlSelect.value = "Manual";
+                    }
+
+                    var balanceShowSelect = document.getElementById("balanceDisplay");
+                    if (response.ShowBalance == true) {
+                        balanceShowSelect.value = "Show";
+                    } else {
+                        balanceShowSelect.value = "Hide";
+                    }
+
+                    // console.log("pin ><<<<" + response.pin);
+                    if (response.pin == 0) {
+                        document.getElementById("OldpinCode").readOnly = true;
+                    }
+
+                    //     b++;
+                    // }
+                    // while (b <= n);
+                }
+            }
+        );
+    }
+
+
+
+    function ChangePin() {
+        if (realValue3 == realValue2) {
+            var formData = new FormData();
+            formData.append("OldPin", realValue1);
+            formData.append("NewPin", realValue2);
+
+            $.ajax(
+                {
+                    url: "/Home/Changepin",
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    type: "POST",
+                    success: function (response) {
+                        // console.log(response);
+
+                        if (response == true) {
+                            alert("New Pin has been successfully changed.");
+                            document.getElementById("OldpinCode").readOnly = false;
+                        } else {
+
+                            alert("crently Pin is not True");
+                        }
+                        document.getElementById("OldpinCode").value = "";
+                        document.getElementById("NewpinCode").value = "";
+                        document.getElementById("RepeatNewpinCode").value = "";
+                        realValue1 = '';
+                        realValue2 = '';
+                        realValue3 = '';
+                    }
+                }
+            );
+        } else {
+            alert("new Pin and confirm Pin does not match !!!")
+        }
+    }
+
+</script>
+
+<script>
+    const toggleBtn = document.getElementById('toggleBtn');
+    const toggleIcon = document.getElementById('toggleIcon');
+    let isOn = true;
+
+    toggleBtn.classList.add('on');
+    toggleIcon.classList = "fa fa-cubes"
+    // toggleBtn.addEventListener('click', () => {
+    //     isOn = !isOn;
+    //     if (isOn) {
+    //         toggleBtn.classList.add('on');
+    //         toggleIcon.classList = "fa fa-cubes"
+    //         // alert('on');
+    //     } else {
+    //         toggleBtn.classList.remove('on');
+    //         toggleIcon.classList = "fa fa-power-off"
+    //         // alert('off');
+    //     }
+    // });
+
+
+
+
+    function CheckPin(pin) {
+        var formData = new FormData();
+        formData.append("Pin", pin);
+
+        $.ajax(
+            {
+                url: "/Home/CheckPin",
+                data: formData,
+                processData: false,
+                contentType: false,
+                type: "POST",
+                success: function (response) {
+                    // console.log(response);
+                    if (response == true) {
+
+
+                        isOn = !isOn;
+                        if (isOn) {
+                            toggleBtn.classList.add('on');
+                            toggleIcon.classList = "fa fa-cubes"
+                            clearInterval(intervalID);
+                            Timeout();
+                            closeModal("modal6");
+                             CpuLed = 'red_on';
+                            if (DeviceLed == true) { toggleLED('cpu', 'red_on');}  
+                        } else {
+                            toggleBtn.classList.remove('on');
+                            toggleIcon.classList = "fa fa-power-off"
+                            intervalID = setInterval(myTimer, 1000);
+                            closeModal("modal6");
+                             CpuLed = 'green_on';
+                            if (DeviceLed == true) { toggleLED('cpu', 'green_on'); }
+                        }
+
+                    }
+                    // document.getElementById("devicebalance").innerText = "" + response.balance;
+                    // document.getElementById("devicebalancedashboard").innerText = "" + response.balance;
+                    // document.getElementById("vpnadressip").innerText = "" + response.VpnIp;
+
+                }
+            }
+        );
+    }
+
+</script>
+
+
+
+<script>
+    GetMinerSettings();
+    function GetMinerSettings() {
+        var formData = new FormData();
+        formData.append("Pin", "");
+
+        $.ajax(
+            {
+                url: "/Home/CheckMinerSetting",
+                data: formData,
+                processData: false,
+                contentType: false,
+                type: "POST",
+                success: function (response) {
+
+
+
+                    // let b = 0;
+                    // var n = response.length;
+                    // do {
+                    // console.log(response);
+                    document.getElementById("PoolName").innerText = "" + response.poolName;
+                    document.getElementById("PoolApiCode").innerText = "" + response.poolApiCode;
+                    document.getElementById("ProxyIp").innerText = "" + response.proxyIp;
+                    document.getElementById("ProxyPort").innerText = "" + response.proxyUser;
+
+                    var miningSelect = document.getElementById("MiningModel");
+                    miningSelect.value = response.miningType;
+
+                    var StrategySelect = document.getElementById("MiningStrategy");
+                    StrategySelect.value = response.miningStrategy;
+
+
+                    var AlertSelect = document.getElementById("NotificationAlerts");
+                    AlertSelect.value = response.notification;
+
+
+                    var HwSelect = document.getElementById("HardwareManagement");
+                    HwSelect.value = response.hardWareManage;
+
+
+
+                    var CoreDlSelect = document.getElementById("CoreDownloadMiner");
+
+                    if (response.autoDownload == true) {
+                        CoreDlSelect.value = "Automatic";
+                    } else {
+                        CoreDlSelect.value = "Manual";
+                    }
+
+                    var PowerSelect = document.getElementById("PowerManagement");
+                    PowerSelect.value = response.powerManage;
+
+
+                    //     b++;
+                    // }
+                    // while (b <= n);
+                }
+            }
+        );
+    }
+
+
+
+</script>
+
+
+<script>
+    GetStaticWallet();
+    function GetStaticWallet() {
+        var formData = new FormData();
+        formData.append("Pin", "");
+
+        $.ajax(
+            {
+                url: "/Home/CheckStaticWallet",
+                data: formData,
+                processData: false,
+                contentType: false,
+                type: "POST",
+                success: function (response) {
+                    // console.log(response);
+                    document.getElementById("MyStaticWalletAddress").innerText = "" + response.wallet;
+
+
+                    const qrwallet = createWalletQR("" + response.wallet);
+                    const qrwalletpopup = createWalletQR("" + response.wallet);
+                }
+            }
+        );
+    }
+
+
+    GetLocalIp();
+    function GetLocalIp() {
+        var formData = new FormData();
+        formData.append("Pin", "");
+
+        $.ajax(
+            {
+                url: "/Home/GetLocalIp",
+                data: formData,
+                processData: false,
+                contentType: false,
+                type: "POST",
+                success: function (response) {
+                    // console.log(response);
+                    document.getElementById("LocalIpSetting").innerText = "" + response;
+
+                    const qrdevice = createDeviceQR("http://" + response);
+                    const qrdevicepopup = createDevicepopupQR("http://" + response);
+
+                }
+            }
+        );
+    }
+
+</script>
+<script>
+
+
+    // TurnOffDevice();
+    function TurnOffDevice() {
+        var formData = new FormData();
+        formData.append("Pin", "");
+
+        $.ajax(
+            {
+                url: "/Home/TurnOffDevice",
+                data: formData,
+                processData: false,
+                contentType: false,
+                type: "POST",
+                success: function (response) {
+                    // alert(response);
+                }
+            }
+        );
+    }
+
+    // RestartDevice();
+    function RestartDevice() {
+        var formData = new FormData();
+        formData.append("Pin", "");
+
+        $.ajax(
+            {
+                url: "/Home/RestartDevice",
+                data: formData,
+                processData: false,
+                contentType: false,
+                type: "POST",
+                success: function (response) {
+                    // alert(response);
+
+                }
+            }
+        );
+    }
+
+    function GetWifiList() {
+        var formData = new FormData();
+        formData.append("Pin", "");
+
+        $.ajax(
+            {
+                url: "/Home/GetWifiList",
+                data: formData,
+                processData: false,
+                contentType: false,
+                type: "POST",
+                success: function (response) {
+
+
+                    // let namesArray = response[0].split(',');
+
+                    // namesArray.forEach(function (name) {
+                    //     alert(name);
+
+                    //     var option = document.createElement("option");
+                    //     // تنظیم مقادیر برای گزینه جدید
+                    //     option.value = name; // مقدار value جدید
+                    //     option.text = name;  // متن نمایش داده شده برای گزینه
+
+                    //     // اضافه کردن گزینه جدید به select
+                    //     select.add(option);
+
+
+                    // });
+                    // alert(response);
+                    // ابتدا به المنت select دسترسی پیدا می‌کنیم
+                    var select = document.getElementById("Wificonnection");
+                    let b = 0;
+                    var n = response.length;
+                    do {
+
+                        var option = document.createElement("option");
+                        // تنظیم مقادیر برای گزینه جدید
+                        option.value = response[b]; // مقدار value جدید
+                        option.text = response[b];  // متن نمایش داده شده برای گزینه
+                        select.add(option);
+
+
+                        b++;
+                    }
+                    while (b <= n);
+
+                }
+            }
+        );
+    }
+
+
+
+    // RestartDevice();
+    function ConnectToWifi() {
+
+        var ssid = document.getElementById("Wificonnection").value;
+        var pass = document.getElementById("wlanpassword").value;
+        //var pass = "KTCL151#0341!b";
+        var formData = new FormData();
+        formData.append("ssid", ssid);
+        formData.append("password", pass);
+
+        $.ajax(
+            {
+                url: "/Home/ConnectToWifi",
+                data: formData,
+                processData: false,
+                contentType: false,
+                type: "POST",
+                success: function (response) {
+                    alert(response);
+                }
+            }
+        );
+    }
+
+</script>
+
+<script>
+    // خواندن مقدار زوم از کوکی
+    function getCookie(name) {
+        let value = "; " + document.cookie;
+        let parts = value.split("; " + name + "=");
+        if (parts.length === 2) return parts.pop().split(";").shift();
+    }
+
+    // ذخیره مقدار زوم در کوکی
+    function setCookie(name, value, days) {
+        let expires = "";
+        if (days) {
+            let date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    }
+
+    // مقدار اولیه زوم از کوکی خوانده شود یا 100% باشد
+    let zoomLevel = parseFloat(getCookie("zoomLevel")) || 100;
+    document.body.style.zoom = zoomLevel + "%";
+    document.getElementById('zoom-value').innerText = "Zoom Level: " + zoomLevel + "%";
+
+    // رویداد دکمه بزرگ‌نمایی
+    document.getElementById('zoom-in').addEventListener('click', function () {
+        zoomLevel += 5;
+        document.body.style.zoom = zoomLevel + "%";
+        document.getElementById('zoom-value').innerText = "Zoom Level: " + zoomLevel + "%";
+        setCookie("zoomLevel", zoomLevel, 7); // ذخیره در کوکی برای 7 روز
+    });
+
+    // رویداد دکمه کوچک‌نمایی
+    document.getElementById('zoom-out').addEventListener('click', function () {
+        zoomLevel -= 5;
+        document.body.style.zoom = zoomLevel + "%";
+        document.getElementById('zoom-value').innerText = "Zoom Level: " + zoomLevel + "%";
+        setCookie("zoomLevel", zoomLevel, 7); // ذخیره در کوکی برای 7 روز
+    });
+</script>
+
+
+<script>
+
+    function CheckCardReader() {
+
+        $.ajax(
+            {
+                url: "/Home/ReadUid",
+                processData: false,
+                contentType: false,
+                type: "POST",
+                success: function (response) {
+                    if (response.wallet != null && response.wallet != "") {
+                        ConnectionLed = 'green_on';
+                        if (DeviceLed == true) {toggleLED('connection', 'green_on');  } 
+                        document.getElementById('uidResult').textContent = response.wallet;
+                        document.getElementById('cardbalance').textContent = response.amount;
+                        const qrcard = createCardQR("http://" + response.wallet);
+                        const qrcardpopup = createCardpopupQR("http://" + response.wallet);
+                    } else {
+                        ConnectionLed = 'red_on';
+                        if (DeviceLed == true) { toggleLED('connection', 'red_on');}  
+                        document.getElementById('uidResult').textContent = "-";
+                        document.getElementById('cardbalance').textContent = "0.00000000";
+                        const qrcard = createCardQR("http://");
+                        const qrcardpopup = createCardpopupQR("http://");
+                    }
+
+
+
+                    // const qrcard = createCardQR("vrr0ac56vhkj3jx5uas0esms9bc1pauu63gj5gqpy2l9hh3nw");
+                    // const qrcardpopup = createCardpopupQR("vrr0ac56vhkj3jx5uas0esms9bc1pauu63gj5gqpy2l9hh3nw");
+
+                },
+                error: function (res) {
+
+                    ConnectionLed = 'red_on';
+                    if (DeviceLed == true) { toggleLED('connection', 'red_on'); }
+                    document.getElementById('uidResult').textContent = "-";
+                    document.getElementById('cardbalance').textContent = "0.00000000";
+                    const qrcard = createCardQR("http://");
+                    const qrcardpopup = createCardpopupQR("http://");
+                }
+            }
+        );
+    }
+
+    setTimeout(CheckCardReader, 30000);
+    // رویداد برای خواندن UID
+    document.getElementById('readUidButton').addEventListener('click', function () {
+        CheckCardReader();
+    });
+
+    // رویداد برای نوشتن داده بر روی کارت
+    document.getElementById('writeCardButton').addEventListener('click', function () {
+
+        $.ajax(
+            {
+                url: "/Home/WriteCard",
+                processData: false,
+                contentType: false,
+                type: "POST",
+                success: function (response) {
+                    document.getElementById('uidResult').textContent = response.wallet;
+                    document.getElementById('cardbalance').textContent = response.amount;
+                    const qrcard = createCardQR("http://" + response.wallet);
+                    const qrcardpopup = createCardpopupQR("http://" + response.wallet);
+                }
+            }
+        );
+
+
+        // const data = document.getElementById('dataInput').value;
+        // const payload = JSON.stringify({ data: data });
+
+        // fetch('/Home/WriteCard', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body: payload
+        // })
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         if (data.success) {
+        //             document.getElementById('writeResult').textContent = 'Success: ' + data.message;
+        //         } else {
+        //             document.getElementById('writeResult').textContent = 'Error: ' + data.message;
+        //         }
+        //     })
+        //     .catch(error => {
+        //         console.error('Error:', error);
+        //         document.getElementById('writeResult').textContent = 'Failed to write to card';
+        //     });
+    });
+</script>
+
+
+
+
+<script>
+    let posX = 0;
+    let posY = 0;
+    let rotation = 0;
+
+    function setTransform() {
+        document.body.style.transform = `translate(${posX}px, ${posY}px) rotate(${rotation}deg)`;
+    }
+
+    function updateCookies() {
+        document.cookie = `posX=${posX}; path=/`;
+        document.cookie = `posY=${posY}; path=/`;
+        document.cookie = `rotation=${rotation}; path=/`;
+    }
+
+    function getCookie(name) {
+        let value = `; ${document.cookie}`;
+        let parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+    }
+
+    document.getElementById('up').onclick = () => {
+        posY -= 10;
+        setTransform();
+        updateCookies();
+    };
+
+    document.getElementById('down').onclick = () => {
+        posY += 10;
+        setTransform();
+        updateCookies();
+    };
+
+    document.getElementById('left').onclick = () => {
+        posX -= 10;
+        setTransform();
+        updateCookies();
+    };
+
+    document.getElementById('right').onclick = () => {
+        posX += 10;
+        setTransform();
+        updateCookies();
+    };
+
+    document.getElementById('rotate').onclick = () => {
+        rotation += 1;
+        setTransform();
+        updateCookies();
+    };
+
+    window.onload = () => {
+        posX = parseInt(getCookie('posX')) || 0;
+        posY = parseInt(getCookie('posY')) || 0;
+        rotation = parseInt(getCookie('rotation')) || 0;
+        setTransform();
+    };
+
+
+    document.getElementById('reset').onclick = () => {
+        posX = 0;
+        posY = 0;
+        rotation = 0;
+        setTransform();
+        updateCookies();
+
+        zoomLevel = 0;
+        document.body.style.zoom = zoomLevel + "%";
+        document.getElementById('zoom-value').innerText = "Zoom Level: " + zoomLevel + "%";
+        setCookie("zoomLevel", zoomLevel, 7); // ذخیره در کوکی برای 7 روز
+    };
+</script>
+
+
+
+
+<script>
+    document.getElementById('reconnectWifiButton').addEventListener('click', function () {
+        $.ajax({
+            url: '/Home/ReconnectWifi',
+            type: 'POST',
+            success: function (response) {
+                document.getElementById('LocalIpSetting').textContent = response;
+            },
+            error: function () {
+                document.getElementById('LocalIpSetting').textContent = "Error reconnecting to Wi-Fi.";
+            }
+        });
+    });
+</script>
+
+
+
+
+<script>
+    document.getElementById('applyRotation').addEventListener('click', function () {
+        const rotation = document.getElementById('rotationSelect').value;
+
+        fetch('/Home/SetRotation', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ rotation: rotation })
+        })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('status').textContent = data.message;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    });
+
+    document.getElementById('applyLcd').addEventListener('click', function () {
+        const lcdSize = document.getElementById('lcdSelect').value;
+
+        fetch('/Home/SetLcdSize', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ lcdSize: lcdSize })
+        })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('statusx').textContent = data.message;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    });
+</script>
+
+
+
+
+<script>
+    function toggleLED(option, status) {
+        fetch('/Home/ControlLED', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ option: option, status: status }),
+        })
+            .then(response => response.json())
+            .then(data => {
+                // console.log('Success:', data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
+</script>

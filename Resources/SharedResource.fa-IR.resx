@@ -1,0 +1,508 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+
+
+
+
+
+
+
+  <data name="Aler &amp; Notification" xml:space="preserve">
+    <value>Aler &amp; Notification</value>
+    <comment>Aler &amp; Notification</comment>
+  </data>
+
+  <data name="Aler &amp; Notification" xml:space="preserve">
+    <value>Aler &amp; اعلان</value>
+    <comment>Aler &amp; اطلاعیه</comment>
+  </data>
+  <data name="Alert" xml:space="preserve">
+    <value>هشدار</value>
+    <comment>هشدار</comment>
+  </data>
+  <data name="All Mode" xml:space="preserve">
+    <value>همه حالت</value>
+    <comment>همه حالت</comment>
+  </data>
+  <data name="All Transactions" xml:space="preserve">
+    <value>همه تراکنش ها</value>
+    <comment>همه معاملات</comment>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>مبلغ</value>
+    <comment>مبلغ</comment>
+  </data>
+  <data name="Automatic" xml:space="preserve">
+    <value>خودکار</value>
+    <comment>خودکار</comment>
+  </data>
+  <data name="Balance" xml:space="preserve">
+    <value>موجودی</value>
+    <comment>موجودی</comment>
+  </data>
+  <data name="Block" xml:space="preserve">
+    <value>مسدود کردن</value>
+    <comment>مسدود کردن</comment>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>پاک کردن</value>
+    <comment>پاک کردن</comment>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>بستن</value>
+    <comment>بستن</comment>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>تأیید</value>
+    <comment>تأیید</comment>
+  </data>
+  <data name="Connect" xml:space="preserve">
+    <value>اتصال</value>
+    <comment>اتصال</comment>
+  </data>
+  <data name="Connect to Pool" xml:space="preserve">
+    <value>اتصال به Pool</value>
+    <comment>اتصال به استخر</comment>
+  </data>
+  <data name="Connection with Mobile" xml:space="preserve">
+    <value>اتصال با تلفن همراه</value>
+    <comment>اتصال با موبایل</comment>
+  </data>
+  <data name="Core" xml:space="preserve">
+    <value>هسته</value>
+    <comment>هسته</comment>
+  </data>
+  <data name="Core Download" xml:space="preserve">
+    <value>دانلود اصلی</value>
+    <comment>دانلود اصلی</comment>
+  </data>
+  <data name="Core Mode" xml:space="preserve">
+    <value>حالت هسته</value>
+    <comment>حالت هسته</comment>
+  </data>
+  <data name="Created by SpCore Team" xml:space="preserve">
+    <value>ایجاد شده توسط تیم SpCore</value>
+    <comment>ایجاد شده توسط تیم SpCore</comment>
+  </data>
+  <data name="Dark" xml:space="preserve">
+    <value>تاریک</value>
+    <comment>تاریک</comment>
+  </data>
+  <data name="Database Download" xml:space="preserve">
+    <value>دانلود پایگاه داده</value>
+    <comment>دانلود پایگاه داده</comment>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>تاریخ</value>
+    <comment>تاریخ</comment>
+  </data>
+  <data name="Davinci Algorithms" xml:space="preserve">
+    <value>الگوریتم‌های داوینچی</value>
+    <comment>الگوریتم‌های داوینچی</comment>
+  </data>
+  <data name="Display Account Balance" xml:space="preserve">
+    <value>نمایش موجودی حساب</value>
+    <comment>نمایش موجودی حساب</comment>
+  </data>
+  <data name="Display LCD" xml:space="preserve">
+    <value>نمایش LCD</value>
+    <comment>نمایش LCD</comment>
+  </data>
+  <data name="Download Core" xml:space="preserve">
+    <value>دانلود هسته</value>
+    <comment>دانلود هسته</comment>
+  </data>
+  <data name="Enter" xml:space="preserve">
+    <value>وارد کنید</value>
+    <comment>ورود</comment>
+  </data>
+  <data name="Enter Pin Code" xml:space="preserve">
+    <value>کد پین را وارد کنید</value>
+    <comment>پین کد را وارد کنید</comment>
+  </data>
+  <data name="From" xml:space="preserve">
+    <value>از</value>
+    <comment>از</comment>
+  </data>
+  <data name="Hardware Management" xml:space="preserve">
+    <value>مدیریت سخت افزار</value>
+    <comment>مدیریت سخت افزار</comment>
+  </data>
+  <data name="Hash Per SC" xml:space="preserve">
+    <value>هش در هر SC</value>
+    <comment>Hash Per SC</comment>
+  </data>
+  <data name="Hash Size" xml:space="preserve">
+    <value>اندازه هش</value>
+    <comment>اندازه هش</comment>
+  </data>
+  <data name="Hide" xml:space="preserve">
+    <value>پنهان کردن</value>
+    <comment>پنهان کردن</comment>
+  </data>
+  <data name="install LCD" xml:space="preserve">
+    <value>LCD را نصب کنید</value>
+    <comment>نصب ال سی دی</comment>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>زبان‌ها</value>
+    <comment>زبان‌ها</comment>
+  </data>
+  <data name="LastPage" xml:space="preserve">
+    <value>آخرین صفحه</value>
+    <comment>آخرین صفحه</comment>
+  </data>
+  <data name="Light" xml:space="preserve">
+    <value>نور</value>
+    <comment>نور</comment>
+  </data>
+  <data name="Log In/Log Out" xml:space="preserve">
+    <value>ورود/خروج</value>
+    <comment>ورود به سیستم/خروج از سیستم</comment>
+  </data>
+  <data name="Manual" xml:space="preserve">
+    <value>دستی</value>
+    <comment>دستی</comment>
+  </data>
+  <data name="Matrix Algorithms" xml:space="preserve">
+    <value>الگوریتم های ماتریسی</value>
+    <comment>الگوریتم های ماتریس</comment>
+  </data>
+  <data name="Maximum Power" xml:space="preserve">
+    <value>حداکثر توان</value>
+    <comment>حداکثر توان</comment>
+  </data>
+  <data name="Mining Config" xml:space="preserve">
+    <value>پیکربندی استخراج</value>
+    <comment>پیکربندی استخراج</comment>
+  </data>
+  <data name="Mining History" xml:space="preserve">
+    <value>تاریخچه معدن</value>
+    <comment>تاریخچه معدن</comment>
+  </data>
+  <data name="Mining Strategy" xml:space="preserve">
+    <value>استراتژی معدن</value>
+    <comment>استراتژی معدن</comment>
+  </data>
+  <data name="Mining Type" xml:space="preserve">
+    <value>نوع استخراج</value>
+    <comment>نوع استخراج</comment>
+  </data>
+  <data name="NextPage" xml:space="preserve">
+    <value>صفحه بعدی</value>
+    <comment>صفحه بعدی</comment>
+  </data>
+  <data name="Notification" xml:space="preserve">
+    <value>اعلان</value>
+    <comment>اعلان</comment>
+  </data>
+  <data name="Notification and Alerts" xml:space="preserve">
+    <value>اعلان و هشدار</value>
+    <comment>اعلان و هشدار</comment>
+  </data>
+  <data name="Off" xml:space="preserve">
+    <value>خاموش</value>
+    <comment>خاموش</comment>
+  </data>
+  <data name="Config Optimized" xml:space="preserve">
+    <value>پیکربندی بهینه شده</value>
+    <comment>پیکربندی بهینه شده</comment>
+  </data>
+  <data name="Paste" xml:space="preserve">
+    <value>چسباندن</value>
+    <comment>جای‌گذاری</comment>
+  </data>
+  <data name="Pin Code" xml:space="preserve">
+    <value>پین کد</value>
+    <comment>پین کد</comment>
+  </data>
+  <data name="Please Enter Code" xml:space="preserve">
+    <value>لطفاً کد را وارد کنید</value>
+    <comment>لطفاً کد را وارد کنید</comment>
+  </data>
+  <data name="Pool Configuration" xml:space="preserve">
+    <value>پیکربندی استخر</value>
+    <comment>پیکربندی استخر</comment>
+  </data>
+  <data name="Pool CPU Mining" xml:space="preserve">
+    <value> استخراج CPU استخر</value>
+    <comment> استخراج CPU استخر</comment>
+  </data>
+  <data name="Pool Name" xml:space="preserve">
+    <value>نام استخر</value>
+    <comment>نام استخر</comment>
+  </data>
+  <data name="Power Management" xml:space="preserve">
+    <value>مدیریت نیرو</value>
+    <comment>مدیریت نیرو</comment>
+  </data>
+  <data name="Protective Systems" xml:space="preserve">
+    <value>سیستم های حفاظتی</value>
+    <comment>سیستم های حفاظتی</comment>
+  </data>
+  <data name="Proxy" xml:space="preserve">
+    <value>پراکسی</value>
+    <comment>پروکسی</comment>
+  </data>
+  <data name="QR Card Wallet" xml:space="preserve">
+    <value>کیف پول کارت QR</value>
+    <comment>کیف پول کارت QR</comment>
+  </data>
+  <data name="QR Code" xml:space="preserve">
+    <value>کد QR</value>
+    <comment>QR Code</comment>
+  </data>
+  <data name="QR اتصال به دستگاه" xml:space="preserve">
+    <value>اتصال QR به دستگاه</value>
+    <comment>QR اتصال به دستگاه</comment>
+  </data>
+  <data name="QR Connection" xml:space="preserve">
+    <value>اتصال QR</value>
+    <comment>اتصال QR</comment>
+  </data>
+  <data name="QR Static Wallet" xml:space="preserve">
+    <value>کیف پول استاتیک QR</value>
+    <comment>QR Static Wallet</comment>
+  </data>
+  <data name="Scan" xml:space="preserve">
+    <value>اسکن</value>
+    <comment>اسکن</comment>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>تنظیمات</value>
+    <comment>تنظیمات</comment>
+  </data>
+  <data name="Show" xml:space="preserve">
+    <value>نمایش</value>
+    <comment>نمایش</comment>
+  </data>
+  <data name="Solo CPU Mining" xml:space="preserve">
+    <value>کاوش CPU انفرادی</value>
+    <comment>CPU انفرادی استخراج</comment>
+  </data>
+  <data name="Spcore Algorithms" xml:space="preserve">
+    <value>الگوریتم های Spcore</value>
+    <comment>الگوریتم های Spcore</comment>
+  </data>
+  <data name="Spcore Block Detail" xml:space="preserve">
+    <value>جزئیات بلوک Spcore</value>
+    <comment>جزئیات بلوک Spcore</comment>
+  </data>
+  <data name="SpCore Message Box" xml:space="preserve">
+    <value>جعبه پیام SpCore</value>
+    <comment>جعبه پیام SpCore</comment>
+  </data>
+  <data name="SpCore Project" xml:space="preserve">
+    <value>پروژه SpCore</value>
+    <comment>پروژه SpCore</comment>
+  </data>
+  <data name="SpCore Transaction" xml:space="preserve">
+    <value>تراکنش SpCore</value>
+    <comment>تراکنش SpCore</comment>
+  </data>
+  <data name="Stability Systems" xml:space="preserve">
+    <value>سیستم های پایداری</value>
+    <comment>سیستم های پایداری</comment>
+  </data>
+  <data name="Start Time" xml:space="preserve">
+    <value>زمان شروع</value>
+    <comment>زمان شروع</comment>
+  </data>
+  <data name="Theme" xml:space="preserve">
+    <value>موضوع</value>
+    <comment>موضوع</comment>
+  </data>
+  <data name="To" xml:space="preserve">
+    <value>به</value>
+    <comment>به</comment>
+  </data>
+  <data name="ToCards Transactions" xml:space="preserve">
+    <value>معاملات ToCards</value>
+    <comment>معاملات ToCards</comment>
+  </data>
+  <data name="Total Minnig" xml:space="preserve">
+    <value>مینیگ کل</value>
+    <comment>میزان حداقلی کل</comment>
+  </data>
+  <data name="ToWallet Transactions" xml:space="preserve">
+    <value>معاملات ToWallet</value>
+    <comment>معاملات ToWallet</comment>
+  </data>
+  <data name="TraHash" xml:space="preserve">
+    <value>TraHash</value>
+    <comment>TraHash</comment>
+  </data>
+  <data name="Transaction" xml:space="preserve">
+    <value>معامله</value>
+    <comment>معامله</comment>
+  </data>
+  <data name="Transaction details" xml:space="preserve">
+    <value>جزئیات تراکنش</value>
+    <comment>جزئیات معامله</comment>
+  </data>
+  <data name="Transaction Mode" xml:space="preserve">
+    <value>حالت معامله</value>
+    <comment>حالت معامله</comment>
+  </data>
+  <data name="Usage CPU" xml:space="preserve">
+    <value>استفاده از CPU</value>
+    <comment>استفاده از CPU</comment>
+  </data>
+  <data name="Vpn Connection" xml:space="preserve">
+    <value>اتصال vpn</value>
+    <comment>اتصال vpn</comment>
+  </data>
+  <data name="VPN DisConnection" xml:space="preserve">
+    <value>قطع اتصال VPN</value>
+    <comment>قطع اتصال VPN</comment>
+  </data>
+  <data name="Wallet Address" xml:space="preserve">
+    <value>آدرس کیف پول</value>
+    <comment>آدرس کیف پول</comment>
+  </data>
+  <data name="Wallet Balance" xml:space="preserve">
+    <value>موجودی کیف پول</value>
+    <comment>موجودی کیف پول</comment>
+  </data>
+  <data name="Wallet QR Code" xml:space="preserve">
+    <value>کد QR کیف پول</value>
+    <comment>کد QR کیف پول</comment>
+  </data>
+  <data name="Wi-Fi Connection" xml:space="preserve">
+    <value>اتصال Wi-Fi</value>
+    <comment>اتصال Wi-Fi</comment>
+  </data>
+  <data name="Withdrawal To Card" xml:space="preserve">
+    <value>برداشت به کارت</value>
+    <comment> برداشت به کارت</comment>
+  </data>
+  <data name="Withdrawal To Wallet" xml:space="preserve">
+    <value> برداشت به کیف پول</value>
+    <comment> برداشت به کیف پول</comment>
+  </data>
+  <data name="You must first select a PIN for your device" xml:space="preserve">
+    <value>ابتدا باید یک پین برای دستگاه خود انتخاب کنید</value>
+    <comment>ابتدا باید یک پین برای دستگاه خود انتخاب کنید</comment>
+  </data>
+  <data name="Zoom Control" xml:space="preserve">
+    <value>کنترل بزرگنمایی</value>
+    <comment>کنترل بزرگنمایی</comment>
+  </data>
+</root>

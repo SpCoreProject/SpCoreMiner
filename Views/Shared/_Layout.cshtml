@@ -1,0 +1,46 @@
+﻿@inject LanguageService language
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - SpCore</title>
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/normalize.min.css" rel="stylesheet" />
+    <link href="css/normalize2.min.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/style-range.css" rel="stylesheet" />
+    <link href="css/index.css" rel="stylesheet" />
+    <link href="css/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet" />
+    <link href="css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/keyboard.css" rel="stylesheet" />
+
+    <script src="js/chart.js"></script>
+    <script src="js/highcharts.js"></script>
+    <script src="js/export-data.js"></script>
+    <script src="js/accessibility.js"></script>
+    <script src="js/series-label.js"></script>
+
+    <script src="lib/jquery/dist/jquery.min.js"></script>
+    <script src="lib/jquery/dist/jquery.js"></script>
+    @*
+    <script>
+
+    let myDomain = document.domain;
+    if(myDomain !="localhost"){
+    alert(myDomain);
+    document.body.innerHtml = "";
+    window.location.replace("https://spcore.ir/");
+    }
+    </script>*@
+</head>
+
+
+<body class="bodynight"> 
+    @RenderBody()
+     
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

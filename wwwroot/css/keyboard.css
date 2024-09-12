@@ -1,0 +1,78 @@
+
+.container {
+    margin-bottom: 100px;
+}
+
+input {
+    padding: 10px;
+    font-size: 16px;
+    width: 300px;
+    margin: 10px;
+}
+
+.keyboard {
+    position: fixed;
+    bottom: -100vh; /* Adjusted to fit new buttons */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #273a4c;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: bottom 0.3s ease;
+}
+
+    .keyboard.active {
+        bottom: 20px;
+    }
+
+.row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.key {
+    padding: 1vw;
+    margin: 0.5vw;
+    font-size: 2vw;
+    cursor: pointer;
+    background-color: #232528;
+    border: 1px solid #222324;
+    color: #dddddd;
+    border-radius: 5px;
+    width: 6vw;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: background-color 0.2s;
+}
+
+    .key:active, .key:focus {
+        background-color: #bbb;
+    }
+
+    .key.active {
+        background-color: #1b324d;
+    }
+
+    .key .shift-char {
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+        font-size: 2px;
+        color: #999;
+    }
+
+    .key.space {
+        width: 20vw;
+    }
+
+    .key.enter, .key.shift, .key.backspace, .key.close, .key.paste {
+        width: 8vw;
+    }
+
+    .key.highlight {
+        background-color: #041a34;
+        color:wheat;
+    }
